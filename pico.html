@@ -87,19 +87,20 @@
             Last name: <input type="text" name="lastname" data-name="lastname"/><br/>
             <button type="submit">Submit</button>
           </form> -->
-          <script type="text/javascript"> 
-           const hash = '?name=some_text&email=more%20text';
-const example = "https://ernestobarrera.github.io/bookmarklet/pico" + hash;
-
-(new URL(example)).searchParams.forEach((x, y) =>
-    document.getElementById(y).value = x);
-           </script>
+          
            <p>Your name:
             <br />
           <input name="name" id="name" /></p>
 
           <p>Your email:
           <br /><input name="email" id="email" /></p>
+          <script type="text/javascript"> 
+            const hash = '?name=some_text&email=more%20text';
+ const example = "https://ernestobarrera.github.io/bookmarklet/pico" + hash;
+ 
+ (new URL(example)).searchParams.forEach((x, y) =>
+     document.getElementById(y).value = x);
+            </script>
           
 
           </section>                
