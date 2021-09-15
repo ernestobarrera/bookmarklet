@@ -87,6 +87,13 @@
             Last name: <input type="text" name="lastname" data-name="lastname"/><br/>
             <button type="submit">Submit</button>
           </form> -->
+          <script type="text/javascript"> 
+            var hashParams = window.location.hash.substr(1).split('&'); // substr(1) to remove the `#`
+            for(var i = 0; i < hashParams.length; i++){
+               var p = hashParams[i].split('=');
+               document.getElementById(p[0]).value = decodeURIComponent(p[1]);;
+           }
+           </script>
           <form>
             <label for="fname">First name:</label><br>
             <input type="text" id="fname" name="fname" value="John"><br>
@@ -94,13 +101,7 @@
             <input type="text" id="lname" name="lname" value="Doe">
           </form>
           
- <script type="text/javascript"> 
- var hashParams = window.location.hash.substr(1).split('&'); // substr(1) to remove the `#`
- for(var i = 0; i < hashParams.length; i++){
-    var p = hashParams[i].split('=');
-    document.getElementById(p[0]).value = decodeURIComponent(p[1]);;
-}
-</script>
+
           </section>                
                 <section>              
                       
