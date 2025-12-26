@@ -1,0 +1,611 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Journal Club | Síndrome de Dolor del Trocánter Mayor</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    
+    <!-- External Plugin CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/menu/menu.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --r-background-color: #0f0f12;
+            --r-main-font: 'Inter', sans-serif;
+            --r-heading-font: 'Playfair Display', serif;
+            --r-main-font-size: 26px;
+            --r-main-color: #d0d0d5;
+            --r-heading-color: #fff;
+            --r-link-color: #7dd3fc;
+            --accent-color: #38bdf8;
+            --accent-green: #4ade80;
+            --accent-orange: #fb923c;
+            --accent-red: #f87171;
+        }
+
+        .reveal { font-weight: 300; }
+        .reveal h1, .reveal h2, .reveal h3 { text-transform: none; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.4em; }
+        .reveal h1 { font-size: 2em; }
+        .reveal h2 { font-size: 1.5em; border-bottom: 2px solid var(--accent-color); padding-bottom: 0.25em; display: inline-block; }
+        .reveal h3 { font-size: 1.15em; font-family: 'Inter', sans-serif; color: var(--accent-color); margin-top: 0.8em; }
+        
+        .reveal p, .reveal ul, .reveal ol { font-size: 0.85em; text-align: left; }
+        .reveal li { margin-bottom: 0.5em; }
+        .reveal strong { color: #fff; font-weight: 600; }
+
+        /* Cards */
+        .card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 1em;
+            margin: 0.4em 0;
+            text-align: left;
+        }
+        .card-title { font-weight: 600; color: var(--accent-color); margin-bottom: 0.4em; font-size: 0.9em; }
+        .card p { font-size: 0.8em; margin: 0; line-height: 1.4; }
+
+        .stat-box {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 0.6em 1em;
+            margin: 0.2em;
+            text-align: center;
+        }
+        .stat-box .number { font-size: 1.8em; font-weight: 700; color: var(--accent-color); display: block; }
+        .stat-box .label { font-size: 0.65em; color: var(--r-main-color); text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .highlight-box {
+            background: rgba(74, 222, 128, 0.1);
+            border-left: 4px solid var(--accent-green);
+            padding: 0.7em 1em;
+            border-radius: 0 8px 8px 0;
+            margin: 0.6em 0;
+            font-size: 0.8em;
+            text-align: left;
+        }
+        .highlight-box.warning { background: rgba(251, 146, 60, 0.1); border-left-color: var(--accent-orange); }
+        .highlight-box.danger { background: rgba(248, 113, 113, 0.1); border-left-color: var(--accent-red); }
+
+        /* Columns */
+        .columns { display: flex; gap: 1.5em; align-items: flex-start; }
+        .columns .col { flex: 1; text-align: left; }
+
+        /* Footnotes */
+        .reveal .slides section { padding-bottom: 50px; }
+        .footnote {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            font-size: 0.5em;
+            color: rgba(255,255,255,0.5);
+            text-align: left;
+            background: linear-gradient(to top, rgba(15,15,18,0.95), rgba(15,15,18,0));
+            padding: 15px 30px 10px 30px;
+        }
+        .footnote a { color: rgba(125, 211, 252, 0.7); text-decoration: none; }
+
+        /* Slide number styling */
+        .reveal .slide-number {
+            font-size: 14px;
+            background: rgba(56, 189, 248, 0.2);
+            color: var(--accent-color);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        /* Table */
+        .reveal table { font-size: 0.6em; line-height: 1.3; border-collapse: collapse; width: 100%; }
+        .reveal th { background: rgba(56, 189, 248, 0.2); color: #fff; font-weight: 600; padding: 0.5em; text-align: left; }
+        .reveal td { padding: 0.4em; border-bottom: 1px solid rgba(255,255,255,0.07); vertical-align: top; }
+
+        /* Intro */
+        .intro-slide h1 { font-size: 2.2em; margin-bottom: 0.2em; }
+        .intro-slide .subtitle { font-size: 1em; opacity: 0.8; margin-bottom: 1em; }
+        .intro-slide .meta { font-size: 0.65em; opacity: 0.5; margin-top: 1.5em; }
+
+        kbd { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 0.1em 0.4em; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            
+            <!-- SLIDE 1: Title -->
+            <section class="intro-slide" data-menu-title="Portada" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h1><i class="fas fa-microscope" style="color: var(--accent-color);"></i> Journal Club</h1>
+                <p class="subtitle">Síndrome de Dolor del Trocánter Mayor (SDTM)<br><em>Revisión de Evidencia 2020-2025</em></p>
+                
+                <!-- TIP Box - Right side -->
+                <div style="position: absolute; top: 280px; width: 38%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.4); backdrop-filter: blur(5px); color: #fff; padding: 20px; font-size: 0.85rem; text-align: left; border-radius: 8px 0 0 8px;">
+                    <h4 style="margin: 0 0 0.5em 0; color: var(--accent-color);">💡TIP</h4>
+                    <p style="font-size: 0.85rem; color: rgb(253, 215, 1); margin: 0 0 0.5em 0;">Esta presentación contiene diapositivas con <strong>audio automático</strong>. Use la rueda del ratón, la barra espaciadora o las flechas para navegar.</p>
+                    <p style="font-size: 0.85rem; color: rgb(253, 215, 1); margin: 0;">Pulse <kbd>A</kbd> para pausar/reanudar el audio.</p>
+                </div>
+                
+                <div class="meta">
+                    <span><i class="fas fa-book"></i> 69 artículos científicos</span> &nbsp;|&nbsp;
+                    <span><i class="fas fa-users"></i> Revisiones sistemáticas, ECAs, metaanálisis</span>
+                </div>
+                <div class="meta" style="margin-top: 0.8em;">
+                    <kbd>M</kbd> Menú &nbsp; <kbd>B</kbd> Pizarra &nbsp; <kbd>C</kbd> Anotar &nbsp; <kbd>?</kbd> Ayuda
+                </div>
+                
+                <p style="font-size: 1rem;">Bienvenidos al Journal Club sobre el Síndrome de Dolor del Trocánter Mayor. Esta revisión sintetiza 69 artículos científicos publicados entre 2020 y 2025.</p>
+            </section>
+
+            <!-- SLIDE 2: Contexto -->
+            <section data-menu-title="Contexto de la Revisión" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h2><i class="fas fa-info-circle"></i> Contexto de la Revisión</h2>
+                <p>Esta síntesis integra hallazgos de <strong>69 artículos científicos</strong> publicados entre 2020 y 2025:</p>
+                <ul>
+                    <li>Revisiones sistemáticas y metaanálisis</li>
+                    <li>Ensayos controlados aleatorizados (ECAs)</li>
+                    <li>Estudios observacionales y reportes de casos</li>
+                </ul>
+                <p style="margin-top: 0.8em;">Enfoque: <strong>etiopatogenia, diagnóstico, manejo conservador e intervencionista</strong> del SDTM, también conocido como bursitis trocantérea o tendinopatía glútea.</p>
+            </section>
+
+            <!-- SLIDE 3: Paradigm Shift -->
+            <section data-menu-title="1. Cambio de Paradigma" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h2><i class="fas fa-lightbulb"></i> 1. Cambio de Paradigma: De Bursitis a Tendinopatía</h2>
+                <div class="columns">
+                    <div class="col">
+                        <div class="card" style="border-color: var(--accent-red);">
+                            <div class="card-title" style="color: var(--accent-red);"><i class="fas fa-times-circle"></i> Concepto Clásico</div>
+                            <p>"Bursitis trocantérea" como causa primaria del dolor lateral de cadera.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="border-color: var(--accent-green);">
+                            <div class="card-title" style="color: var(--accent-green);"><i class="fas fa-check-circle"></i> Evidencia Actual</div>
+                            <p><strong>Tendinopatía de los tendones glúteo medio y mínimo</strong> es la causa principal. La bursitis es un hallazgo secundario.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 0.8em;">
+                    <strong>Implicación clínica:</strong> El tratamiento debe centrarse en la salud de los tendones abductores, no solo en la bursa.
+                </div>
+                <div class="footnote">
+                    <strong>Referencias:</strong> French HP 2020, Thaunat M 2022, Noble MB 2022, Donati D 2025, Wang Y 2022
+                </div>
+            </section>
+
+            <!-- SLIDE 4: Epidemiología -->
+            <section data-menu-title="Epidemiología" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h2><i class="fas fa-users"></i> Epidemiología del SDTM</h2>
+                <div style="text-align: center; margin: 0.8em 0;">
+                    <div class="stat-box">
+                        <span class="number">1 de 4</span>
+                        <span class="label">Mujeres mayor de 50 años afectadas</span>
+                    </div>
+                    <div class="stat-box" style="background: rgba(251, 146, 60, 0.15); border-color: var(--accent-orange);">
+                        <span class="number" style="color: var(--accent-orange);">3.3x</span>
+                        <span class="label">Riesgo si mujer vs. hombre</span>
+                    </div>
+                    <div class="stat-box" style="background: rgba(248, 113, 113, 0.15); border-color: var(--accent-red);">
+                        <span class="number" style="color: var(--accent-red);">OR 1.56</span>
+                        <span class="label">Riesgo si diabético</span>
+                    </div>
+                </div>
+                <h3>Factores de Riesgo Identificados</h3>
+                <ul>
+                    <li><strong>Sexo femenino</strong>, el factor de riesgo más consistente</li>
+                    <li>Edad: quinta y sexta década de la vida</li>
+                    <li>Comorbilidades: <strong>Diabetes mellitus</strong>, obesidad</li>
+                </ul>
+                <div class="footnote">
+                    <strong>Referencias:</strong> Kinsella R 2024, White RC 2024, Kadar A 2023
+                </div>
+            </section>
+
+            <!-- SLIDE 5: Diagnóstico Clínico -->
+            <section data-menu-title="2. Diagnóstico Clínico" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h2><i class="fas fa-stethoscope"></i> 2. Diagnóstico: La Clínica Primero</h2>
+                <p>Un <strong>metaanálisis reciente</strong> con 272 participantes identificó un cluster de pruebas de alto valor:</p>
+                <div class="columns" style="margin-top: 0.8em;">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-title"><i class="fas fa-hand-pointer"></i> 1. Palpación del Tendón Glúteo</div>
+                            <p>Dolor a la palpación directa sobre el trocánter mayor.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-title"><i class="fas fa-arrows-alt-h"></i> 2. Abducción Resistida</div>
+                            <p>Dolor al resistir la abducción activa de cadera.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 0.8em;">
+                    <strong>Resultado:</strong> Ambas positivas eleva la probabilidad al <strong style="color: var(--accent-green);">96 por ciento</strong>. Ambas negativas reduce al <strong style="color: var(--accent-red);">14 por ciento</strong>.
+                </div>
+                <div class="footnote">
+                    <strong>Referencia clave:</strong> Kinsella R et al. 2024, J Orthop Sports Phys Ther
+                </div>
+            </section>
+
+            <!-- SLIDE 6: RM Precaución -->
+            <section data-menu-title="Precaución con RM" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h2><i class="fas fa-exclamation-triangle" style="color: var(--accent-orange);"></i> Precaución con la Resonancia Magnética</h2>
+                <div class="highlight-box warning">
+                    <strong>Hallazgo clave:</strong> En voluntarios asintomáticos, n igual a 50, 100 caderas, la RM mostró bursitis trocantérica en el <strong>33 por ciento</strong> de los casos. Alteraciones de señal tendinosa en aproximadamente 20 por ciento.
+                </div>
+                <h3>Implicaciones</h3>
+                <ul>
+                    <li>Los hallazgos de imagen <strong>no siempre se correlacionan</strong> con síntomas clínicos</li>
+                    <li>La RM es útil para confirmar y planificar intervenciones, no para diagnosticar de forma aislada</li>
+                    <li>Ecografía dinámica: alternativa valiosa para diferenciar patología</li>
+                </ul>
+                <div class="footnote">
+                    <strong>Referencia:</strong> De Grove V et al. 2021, Eur J Radiol
+                </div>
+            </section>
+
+            <!-- SLIDE 7: Tratamiento Conservador -->
+            <section data-menu-title="3. Tratamiento Conservador" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h2><i class="fas fa-dumbbell"></i> 3. Tratamiento Conservador: El Ejercicio es Rey</h2>
+                <p>Encuesta internacional con 361 fisioterapeutas de Australia, Nueva Zelanda e Irlanda:</p>
+                <ul>
+                    <li><strong>El 100 por ciento</strong> utilizan educación más ejercicio: fortalecimiento glúteo, control neuromuscular</li>
+                    <li>90 por ciento masaje, 53 por ciento estiramientos, 50 por ciento modalidades térmicas</li>
+                    <li>40 por ciento recomiendan hasta 2 o 3 inyecciones de corticoides al año</li>
+                </ul>
+                <div class="highlight-box" style="margin-top: 0.6em;">
+                    <strong>Evidencia:</strong> La fisioterapia dirigida demostró que el <strong>60 punto 5 por ciento</strong> de los pacientes reportó resolución de síntomas a los 15 meses.
+                </div>
+                <div class="footnote">
+                    <strong>Referencias:</strong> French HP et al. 2020, Physiotherapy | Gill JK et al. 2025, Cureus
+                </div>
+            </section>
+
+            <!-- SLIDE 8: Ondas de Choque -->
+            <section data-menu-title="Ondas de Choque ESWT" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h2><i class="fas fa-bolt"></i> Ondas de Choque Extracorpóreas (ESWT)</h2>
+                <p><strong>ECA prospectivo, simple ciego</strong> con 104 pacientes, 94 mujeres: ondas de choque focalizadas versus inyección de corticoides.</p>
+                <div style="text-align: center; margin: 0.8em 0;">
+                    <div class="stat-box" style="background: rgba(74, 222, 128, 0.15); border-color: var(--accent-green);">
+                        <span class="number" style="color: var(--accent-green);">37 vs 55</span>
+                        <span class="label">Dolor EVA a 12 meses, p igual 0.007</span>
+                    </div>
+                    <div class="stat-box" style="background: rgba(74, 222, 128, 0.15); border-color: var(--accent-green);">
+                        <span class="number" style="color: var(--accent-green);">70 vs 58</span>
+                        <span class="label">Función HHS a 12 meses, p igual 0.002</span>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <strong>Conclusión:</strong> ESWT fue significativamente superior a corticoides a los 12 meses en dolor, función y calidad de vida.
+                </div>
+                <div class="footnote">
+                    <strong>Referencia:</strong> Heaver C et al. 2023, Hip Int
+                </div>
+            </section>
+
+            <!-- SLIDE 9: ESWT Controversia -->
+            <section data-menu-title="ESWT Metaanálisis" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h2><i class="fas fa-balance-scale-left"></i> ESWT: Evidencia Contradictoria</h2>
+                <p><strong>Metaanálisis</strong> con 12 estudios y más de 1100 sujetos:</p>
+                <ul>
+                    <li><strong>No</strong> diferencias estadísticamente significativas versus control para dolor ni función</li>
+                    <li><strong>Pero:</strong> Efectos de tratamiento de magnitud moderada a favor de ESWT, Hedges G 0 punto 71</li>
+                    <li>Mejoras clínicas observadas en todos los estudios incluidos</li>
+                </ul>
+                <div class="highlight-box warning" style="margin-top: 0.6em;">
+                    <strong>Interpretación:</strong> Heterogeneidad de protocolos, focal versus radial, energía y sesiones, dificulta conclusiones definitivas. Baja incidencia de efectos secundarios hace de las ondas de choque una opción viable.
+                </div>
+                <div class="footnote">
+                    <strong>Referencia:</strong> Harding D et al. 2024, Musculoskeletal Care
+                </div>
+            </section>
+
+            <!-- SLIDE 10: Corticoides -->
+            <section data-menu-title="4. Inyecciones Corticoides" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h2><i class="fas fa-syringe"></i> 4. Inyecciones de Corticoides</h2>
+                <div class="columns">
+                    <div class="col">
+                        <h3 style="color: var(--accent-green);">Ventajas</h3>
+                        <ul>
+                            <li>Eficaces para alivio del dolor a <strong>corto plazo</strong></li>
+                            <li>Ampliamente disponibles y de bajo costo</li>
+                            <li>Pueden identificar pacientes que responderán a tratamiento</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3 style="color: var(--accent-red);">Limitaciones</h3>
+                        <ul>
+                            <li>Beneficio <strong>disminuye con el tiempo</strong></li>
+                            <li>Múltiples inyecciones previas dan peores resultados quirúrgicos</li>
+                            <li>A largo plazo: inferior a ondas de choque</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footnote">
+                    <strong>Referencias:</strong> Gill JK 2025, Wang Y 2022, Donati D 2025, Dzidzishvili L 2022
+                </div>
+            </section>
+
+            <!-- SLIDE 11: PRP -->
+            <section data-menu-title="PRP vs Placebo" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h2><i class="fas fa-vial" style="color: var(--accent-red);"></i> PRP: El Estudio que Cambia Todo</h2>
+                <div class="card" style="border-color: var(--accent-red);">
+                    <div class="card-title" style="color: var(--accent-red);"><i class="fas fa-flask"></i> ECA Doble Ciego de Alta Calidad, Nivel I</div>
+                    <p><strong>Atchia I et al. 2025</strong>, J Bone Joint Surg Am, con 79 pacientes con SDTM refractario</p>
+                    <p>Comparación: Plasma rico en plaquetas versus <strong>inyección placebo</strong></p>
+                </div>
+                <div style="text-align: center; margin: 0.8em 0;">
+                    <div class="stat-box" style="background: rgba(248, 113, 113, 0.15); border-color: var(--accent-red);">
+                        <span class="number" style="color: var(--accent-red);">p mayor 0.05</span>
+                        <span class="label">Sin diferencias significativas a 12 meses</span>
+                    </div>
+                </div>
+                <div class="highlight-box danger">
+                    <strong>Conclusión:</strong> No apoyamos el uso rutinario de PRP para el tratamiento del SDTM. Este hallazgo <strong>invalida estudios previos</strong> de menor calidad metodológica.
+                </div>
+                <div class="footnote">
+                    <strong>Referencia:</strong> Atchia I et al. 2025, J Bone Joint Surg Am
+                </div>
+            </section>
+
+            <!-- SLIDE 12: Cirugía -->
+            <section data-menu-title="5. Tratamiento Quirúrgico" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h2><i class="fas fa-procedures"></i> 5. Tratamiento Quirúrgico</h2>
+                <p><strong>Indicación:</strong> Síntomas crónicos refractarios tras <strong>3 a 6 meses</strong> de tratamiento conservador optimizado.</p>
+                <div class="columns" style="margin-top: 0.6em;">
+                    <div class="col">
+                        <h3>Técnicas Endoscópicas</h3>
+                        <ul style="font-size: 0.8em;">
+                            <li>Bursectomía</li>
+                            <li>Liberación banda iliotibial</li>
+                            <li>Reparación tendinosa</li>
+                        </ul>
+                        <div class="stat-box" style="margin-top: 0.6em;">
+                            <span class="number">70 a 100%</span>
+                            <span class="label">Tasa de éxito quirúrgico</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h3>Factores de Mal Pronóstico</h3>
+                        <ul style="font-size: 0.8em;">
+                            <li>IMC elevado, p igual 0.001</li>
+                            <li><strong>Tabaquismo</strong>, OR 11 punto 2</li>
+                            <li>Fibromialgia o angustia emocional, <strong>OR 26 punto 1</strong></li>
+                            <li>Fusión lumbosacra previa, OR 13 punto 8</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footnote">
+                    <strong>Referencias:</strong> Giai Via R 2024, Dzidzishvili L 2022, Thaunat M 2022
+                </div>
+            </section>
+
+            <!-- SLIDE 13: Historia Natural -->
+            <section data-menu-title="Historia Natural" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h2><i class="fas fa-clock"></i> Historia Natural: Seguimiento a 11 Años</h2>
+                <p><strong>Estudio prospectivo</strong> con 24 pacientes con SDTM versus 20 controles asintomáticos:</p>
+                <div style="text-align: center; margin: 0.8em 0;">
+                    <div class="stat-box" style="background: rgba(248, 113, 113, 0.15); border-color: var(--accent-red);">
+                        <span class="number" style="color: var(--accent-red);">45%</span>
+                        <span class="label">Todavía con SDTM a 11 años</span>
+                    </div>
+                    <div class="stat-box" style="background: rgba(251, 146, 60, 0.15); border-color: var(--accent-orange);">
+                        <span class="number" style="color: var(--accent-orange);">35%</span>
+                        <span class="label">Desarrolló osteoartritis de cadera</span>
+                    </div>
+                </div>
+                <div class="highlight-box warning">
+                    <strong>Implicación:</strong> El SDTM es una <strong>condición crónica</strong>. Existe una relación temporal con el desarrollo posterior de osteoartritis de cadera, p igual 0.002 versus control.
+                </div>
+                <div class="footnote">
+                    <strong>Referencia:</strong> Bicket L et al. 2021, BMC Musculoskelet Disord
+                </div>
+            </section>
+
+            <!-- SLIDE 14: Certeza GRADE -->
+            <section data-menu-title="6. Certeza de la Evidencia" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h2><i class="fas fa-balance-scale"></i> 6. Certeza de la Evidencia según GRADE</h2>
+                <table>
+                    <thead>
+                        <tr><th style="width: 50%;">Conclusión</th><th>Certeza</th><th>Justificación</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Ejercicio terapéutico es la base del tratamiento</td><td><strong style="color: var(--accent-orange);">Moderada</strong></td><td>Faltan ECAs comparando protocolos específicos</td></tr>
+                        <tr><td>Corticoides eficaces a corto plazo</td><td><strong style="color: var(--accent-green);">Alta</strong></td><td>Múltiples ECAs consistentes</td></tr>
+                        <tr><td>PRP no es superior a placebo</td><td><strong style="color: var(--accent-green);">Alta</strong></td><td>ECA doble ciego reciente de Atchia 2025</td></tr>
+                        <tr><td>ESWT superior a corticoides a largo plazo</td><td><strong style="color: var(--accent-orange);">Moderada</strong></td><td>Heterogeneidad de protocolos</td></tr>
+                        <tr><td>Cirugía endoscópica efectiva</td><td><strong style="color: var(--accent-red);">Baja</strong></td><td>Basada en series de casos, Nivel IV</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- SLIDE 15: Gaps -->
+            <section data-menu-title="7. Vacíos en la Evidencia" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h2><i class="fas fa-question-circle"></i> 7. Vacíos Críticos en la Evidencia</h2>
+                <ul>
+                    <li><strong>Comparaciones directas:</strong> Faltan ECAs ejercicio versus ondas de choque, cirugía versus conservador en refractarios</li>
+                    <li><strong>Protocolos óptimos:</strong> No definidos parámetros de ejercicio, tipo ni dosis, ni ondas de choque focal versus radial</li>
+                    <li><strong>Poblaciones subrepresentadas:</strong> Mayoría mujeres de mediana edad. Evidencia limitada en hombres, atletas, jóvenes</li>
+                    <li><strong>Seguimientos:</strong> Mayoría de estudios con 1 a 2 años. Se necesita mayor de 5 años</li>
+                    <li><strong>Nuevas tecnologías:</strong> Tenotomía percutánea guiada por ecografía, embolización de arteria circunfleja femoral lateral, con resultados iniciales prometedores</li>
+                </ul>
+                <div class="footnote">
+                    <strong>Referencias:</strong> Wahezi SE 2023, Yerra S 2024
+                </div>
+            </section>
+
+            <!-- SLIDE 16: Take-Home Message -->
+            <section data-menu-title="8. Mensaje Final" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h2><i class="fas fa-clipboard-check"></i> 8. Enfoque Escalonado Recomendado</h2>
+                <div style="font-size: 0.9em; text-align: left; max-width: 900px; margin: 0.8em auto;">
+                    <p><strong style="color: var(--accent-color);">1.</strong> <strong>Primera línea:</strong> Educación más Ejercicio estructurado, fortalecimiento glúteo, control neuromuscular</p>
+                    <p><strong style="color: var(--accent-color);">2.</strong> <strong>Dolor agudo:</strong> Inyección de corticoides, beneficio a corto plazo, guiada por ecografía</p>
+                    <p><strong style="color: var(--accent-color);">3.</strong> <strong>Alternativa no invasiva:</strong> Ondas de choque, evidencia de superioridad a largo plazo</p>
+                    <p><strong style="color: var(--accent-red);">✗</strong> <strong>No recomendado rutinariamente:</strong> Plasma rico en plaquetas, evidencia negativa de alta calidad</p>
+                    <p><strong style="color: var(--accent-color);">4.</strong> <strong>Refractario 3 a 6 meses:</strong> Cirugía endoscópica, selección cuidadosa, evitar en fumadores y angustia emocional</p>
+                </div>
+            </section>
+
+            <!-- SLIDE 17: Artículos Clave -->
+            <section data-menu-title="Artículos Clave" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h2><i class="fas fa-bookmark"></i> Artículos Clave para Revisar</h2>
+                <table style="font-size: 0.5em;">
+                    <thead>
+                        <tr><th>#</th><th>Autor Año</th><th>Revista</th><th>Tema</th><th>Diseño</th><th>Hallazgo Clave</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>3</td><td>Kinsella R 2024</td><td>J Orthop Sports Phys Ther</td><td>Precisión diagnóstica</td><td>Revisión Sistemática Metaanálisis</td><td>Cluster de 2 pruebas da 96% probabilidad post-test</td></tr>
+                        <tr><td>5</td><td>Gazendam A 2022</td><td>Clin J Sport Med</td><td>Eficacia tratamientos</td><td>Metaanálisis en red</td><td>Ejercicio estructurado mejor para función</td></tr>
+                        <tr><td>20</td><td>Heaver C 2023</td><td>Hip Int</td><td>ESWT versus corticoides</td><td>ECA simple ciego</td><td>ESWT superior a 12 meses</td></tr>
+                        <tr style="background: rgba(248, 113, 113, 0.1);"><td><strong>30</strong></td><td><strong>Atchia I 2025</strong></td><td>J Bone Joint Surg Am</td><td>PRP versus placebo</td><td>ECA Doble Ciego Nivel I</td><td><strong>Sin diferencias PRP versus placebo</strong></td></tr>
+                        <tr><td>6</td><td>Giai Via R 2024</td><td>Eur J Orthop Surg Traumatol</td><td>Manejo endoscópico</td><td>Revisión Sistemática PRISMA</td><td>Tasa de éxito 70 a 100%</td></tr>
+                        <tr><td>16</td><td>Bicket L 2021</td><td>BMC Musculoskelet Disord</td><td>Historia natural</td><td>Cohorte prospectiva</td><td>45% todavía con SDTM a 11 años</td></tr>
+                    </tbody>
+                </table>
+                <p style="font-size: 0.6em; margin-top: 0.5em; opacity: 0.6;">Revisión Sistemática igual RS | Metaanálisis igual MA | ECA igual Ensayo Controlado Aleatorizado</p>
+            </section>
+
+            <!-- SLIDE 18: Discusión -->
+            <section data-menu-title="9. Discusión" data-background-image="https://ernestobarrera.github.io/assets/images/pizarra.jpg">
+                <h2><i class="fas fa-comments"></i> 9. Preguntas para Discusión</h2>
+                <ol style="font-size: 0.85em;">
+                    <li>¿Cómo integramos el hallazgo negativo sobre <strong>Plasma Rico en Plaquetas</strong> en nuestra práctica actual?</li>
+                    <li>¿Tenemos un <strong>protocolo de ejercicio estandarizado</strong> en nuestra unidad para SDTM?</li>
+                    <li>¿Cuándo solicitamos Resonancia Magnética versus ecografía en dolor lateral de cadera?</li>
+                    <li>¿Cuál es nuestro <strong>umbral para derivar a cirugía</strong>? ¿Consideramos factores de mal pronóstico?</li>
+                    <li>¿Deberíamos incorporar <strong>ondas de choque</strong> como alternativa a corticoides repetidos?</li>
+                </ol>
+                <div style="margin-top: 1.5em; font-size: 0.65em; opacity: 0.6;">
+                    <i class="fas fa-pen"></i> Usa la pizarra, tecla B, para anotar ideas clave de la discusión.
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="reveal.js/plugin/search/search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/menu/menu.js"></script>
+    
+    <!-- Audio Slideshow Plugin -->
+    <script src="https://ernestobarrera.github.io/reveal.js-plugins/audio-slideshow/plugin.js"></script>
+    <script src="https://ernestobarrera.github.io/reveal.js-plugins/audio-slideshow/RecordRTC.js"></script>
+    <script src="https://ernestobarrera.github.io/reveal.js-plugins/audio-slideshow/recorder.js"></script>
+
+    <script>
+        Reveal.initialize({
+            width: 1280,
+            height: 720,
+            margin: 0.08,
+            
+            hash: true,
+            history: true,
+            center: true,
+            
+            mouseWheel: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+            
+            transition: 'slide',
+            backgroundTransition: 'fade',
+
+            controls: true,
+            controlsTutorial: true,
+            help: true,
+
+            // Audio configuration - same as original
+            audio: {
+                prefix: 'audio/',
+                suffix: '.ogg',
+                defaultDuration: 5,
+                textToSpeechURL: "https://api.voicerss.org/?key=5d3a06e889ae45cb8f2e4295756bec7e&hl=es-es&v=Diego&c=ogg&r=1&f=48khz_16bit_stereo&src=",
+                advance: -1,
+                autoplay: true,
+                defaultText: true,
+                playerOpacity: 0.2,
+            },
+
+            menu: {
+                side: 'left',
+                width: 'normal',
+                numbers: true,
+                titleSelector: 'h1, h2',
+                useTextContentForMissingTitles: true,
+                hideMissingTitles: false,
+                markers: true,
+                custom: [
+                    {
+                        title: 'Atajos de Teclado',
+                        icon: '<i class="fas fa-keyboard"></i>',
+                        content: `
+                            <dl style="padding: 1em; font-size: 0.9em;">
+                                <dt style="font-weight: 600; color: #38bdf8; margin-top: 0.8em;">Navegación</dt>
+                                <dd><kbd>→</kbd> / <kbd>←</kbd> Siguiente / Anterior</dd>
+                                <dd><kbd>Espacio</kbd> Avanzar</dd>
+                                <dd><kbd>Home</kbd> / <kbd>End</kbd> Inicio / Fin</dd>
+                                
+                                <dt style="font-weight: 600; color: #38bdf8; margin-top: 0.8em;">Vista</dt>
+                                <dd><kbd>O</kbd> Vista general</dd>
+                                <dd><kbd>S</kbd> Notas del presentador</dd>
+                                <dd><kbd>F</kbd> Pantalla completa</dd>
+                                
+                                <dt style="font-weight: 600; color: #38bdf8; margin-top: 0.8em;">Herramientas</dt>
+                                <dd><kbd>M</kbd> Abrir este menú</dd>
+                                <dd><kbd>B</kbd> Pizarra (dibujar)</dd>
+                                <dd><kbd>C</kbd> Anotar sobre diapositiva</dd>
+                                <dd><kbd>A</kbd> Reproducir/pausar audio</dd>
+                                <dd><kbd>Alt + Click</kbd> Zoom</dd>
+                                
+                                <dt style="font-weight: 600; color: #38bdf8; margin-top: 0.8em;">Ayuda</dt>
+                                <dd><kbd>?</kbd> Mostrar ayuda</dd>
+                            </dl>
+                        `
+                    }
+                ],
+                themes: false,
+                transitions: false,
+                openButton: true,
+                openSlideNumber: false,
+                keyboard: true,
+            },
+            
+            chalkboard: {
+                storage: "chalkboard-journalclub",
+                toggleChalkboardButton: { left: "80px" },
+                toggleNotesButton: { left: "130px" },
+                colorButtons: 5,
+            },
+
+            plugins: [ 
+                RevealHighlight, 
+                RevealNotes, 
+                RevealZoom, 
+                RevealSearch,
+                RevealMenu,
+                RevealChalkboard,
+                RevealAudioSlideshow
+            ]
+        });
+    </script>
+</body>
+</html>
