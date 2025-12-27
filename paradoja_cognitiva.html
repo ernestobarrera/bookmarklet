@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>La Paradoja Cognitiva del Médico Generalista</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/menu/menu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --r-background-color: #0a0a0f;
+            --r-main-font: 'Inter', sans-serif;
+            --r-heading-font: 'Playfair Display', serif;
+            --r-main-font-size: 26px;
+            --r-main-color: #d0d0d5;
+            --r-heading-color: #fff;
+            --r-link-color: #7dd3fc;
+            --accent-color: #38bdf8;
+            --accent-purple: #a78bfa;
+            --accent-green: #4ade80;
+            --accent-orange: #fb923c;
+            --accent-red: #f87171;
+        }
+        .reveal { font-weight: 300; }
+        .reveal h1, .reveal h2, .reveal h3 { text-transform: none; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.4em; }
+        .reveal h1 { font-size: 2em; background: linear-gradient(135deg, #fff 0%, #a78bfa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .reveal h2 { font-size: 1.4em; border-bottom: 2px solid var(--accent-purple); padding-bottom: 0.25em; display: inline-block; }
+        .reveal h3 { font-size: 1.1em; font-family: 'Inter', sans-serif; color: var(--accent-purple); margin-top: 0.8em; }
+        .reveal p, .reveal ul, .reveal ol { font-size: 0.82em; text-align: left; }
+        .reveal li { margin-bottom: 0.45em; }
+        .reveal strong { color: #fff; font-weight: 600; }
+        .card {
+            background: linear-gradient(145deg, rgba(167,139,250,0.08), rgba(255,255,255,0.02));
+            border: 1px solid rgba(167,139,250,0.2);
+            border-radius: 12px; padding: 1em; margin: 0.4em 0; text-align: left;
+        }
+        .card-title { font-weight: 600; color: var(--accent-purple); margin-bottom: 0.4em; font-size: 0.9em; }
+        .card p { font-size: 0.78em; margin: 0; line-height: 1.4; }
+        .stat-box {
+            display: inline-block; background: rgba(167,139,250,0.12); border: 1px solid var(--accent-purple);
+            border-radius: 10px; padding: 0.6em 1.2em; margin: 0.3em; text-align: center;
+        }
+        .stat-box .number { font-size: 2em; font-weight: 700; color: var(--accent-purple); display: block; }
+        .stat-box .label { font-size: 0.6em; color: var(--r-main-color); text-transform: uppercase; letter-spacing: 0.05em; }
+        .highlight-box {
+            background: rgba(74,222,128,0.08); border-left: 4px solid var(--accent-green);
+            padding: 0.7em 1em; border-radius: 0 10px 10px 0; margin: 0.6em 0; font-size: 0.78em; text-align: left;
+        }
+        .highlight-box.warning { background: rgba(251,146,60,0.08); border-left-color: var(--accent-orange); }
+        .highlight-box.danger { background: rgba(248,113,113,0.08); border-left-color: var(--accent-red); }
+        .highlight-box.info { background: rgba(167,139,250,0.08); border-left-color: var(--accent-purple); }
+        .columns { display: flex; gap: 1.5em; align-items: flex-start; }
+        .columns .col { flex: 1; text-align: left; }
+        .reveal .slides section { padding-bottom: 50px; }
+        .footnote {
+            position: absolute; bottom: 0; left: 0; right: 0; font-size: 0.48em;
+            color: rgba(255,255,255,0.4); text-align: left;
+            background: linear-gradient(to top, rgba(10,10,15,0.95), rgba(10,10,15,0)); padding: 15px 30px 10px 30px;
+        }
+        .footnote a { color: rgba(167,139,250,0.6); text-decoration: none; }
+        .reveal .slide-number { font-size: 14px; background: rgba(167,139,250,0.2); color: var(--accent-purple); padding: 5px 10px; border-radius: 4px; }
+        .reveal table { font-size: 0.58em; line-height: 1.3; border-collapse: collapse; width: 100%; }
+        .reveal th { background: rgba(167,139,250,0.15); color: #fff; font-weight: 600; padding: 0.5em; text-align: left; }
+        .reveal td { padding: 0.4em; border-bottom: 1px solid rgba(255,255,255,0.06); vertical-align: top; }
+        .intro-slide h1 { font-size: 2.4em; margin-bottom: 0.2em; }
+        .intro-slide .subtitle { font-size: 0.95em; opacity: 0.85; margin-bottom: 1em; }
+        .intro-slide .meta { font-size: 0.6em; opacity: 0.45; margin-top: 1.5em; }
+        kbd { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 0.1em 0.4em; font-size: 0.9em; }
+        .paradox-icon { font-size: 3em; margin-bottom: 0.3em; display: block; }
+        .timeline { display: flex; justify-content: space-around; margin: 1em 0; }
+        .timeline-item { text-align: center; flex: 1; }
+        .timeline-year { font-size: 0.7em; color: var(--accent-purple); font-weight: 600; }
+        .timeline-value { font-size: 1.8em; font-weight: 700; color: #fff; }
+        .timeline-label { font-size: 0.55em; opacity: 0.7; }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- SLIDE 1: Portada -->
+            <section class="intro-slide" data-menu-title="Portada" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="Bienvenidos a esta presentación sobre La Paradoja Cognitiva del Médico Generalista. A lo largo de las siguientes diapositivas, exploraremos por qué el modelo tradicional que concibe al médico de familia como una suma de especialistas parciales es estructuralmente imposible, tanto desde el punto de vista temporal como cognitivo. Esta revisión se basa en evidencia científica publicada hasta diciembre de 2025. Pueden usar las teclas de navegación para avanzar, y la tecla A para pausar o reanudar el audio.">
+                <span class="paradox-icon">🧠⚡</span>
+                <h1>La Paradoja Cognitiva del Médico Generalista</h1>
+                <p class="subtitle">La Imposibilidad Estructural de la Aplicación Aditiva<br>del Conocimiento Especializado en Atención Primaria</p>
+                <div class="meta">
+                    <span><i class="fas fa-calendar"></i> Diciembre 2025</span> &nbsp;|&nbsp;
+                    <span><i class="fas fa-file-alt"></i> Revisión Crítica de la Evidencia</span>
+                </div>
+                <div class="meta" style="margin-top: 0.8em;">
+                    <kbd>M</kbd> Menú &nbsp; <kbd>B</kbd> Pizarra &nbsp; <kbd>C</kbd> Anotar &nbsp; <kbd>?</kbd> Ayuda
+                </div>
+            </section>
+
+            <!-- SLIDE 2: Resumen -->
+            <section data-menu-title="Resumen Ejecutivo" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="Comencemos con la tesis central de esta presentación. Durante décadas, se ha asumido implícitamente que el médico de familia debe dominar el núcleo esencial de cada especialidad médica. Pero esta lógica aditiva contiene una falacia matemática fundamental. En esta diapositiva, contraponemos el mito, a la izquierda en rojo, con la realidad, a la derecha en verde. El verdadero valor del generalista no reside en acumular fragmentos de conocimiento especializado, sino en aportar una expertise emergente que ningún especialista puede ofrecer.">
+                <h2><i class="fas fa-bullseye"></i> La Paradoja en 60 Segundos</h2>
+                <div class="highlight-box info">
+                    <strong>Tesis central:</strong> El modelo del generalista como «suma de especialistas parciales» carece de fundamento tanto <strong>biológico</strong> como <strong>temporal</strong>.
+                </div>
+                <div class="columns" style="margin-top: 0.8em;">
+                    <div class="col">
+                        <div class="card" style="border-color: var(--accent-red);">
+                            <div class="card-title" style="color: var(--accent-red);"><i class="fas fa-times-circle"></i> El Mito</div>
+                            <p>El generalista domina el 20% esencial de cada especialidad (15 × 20% = 300% imposible)</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="border-color: var(--accent-green);">
+                            <div class="card-title" style="color: var(--accent-green);"><i class="fas fa-check-circle"></i> La Realidad</div>
+                            <p>El generalista aporta <strong>expertise emergente</strong>: síntesis, continuidad, gestión de complejidad</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: La Falacia -->
+            <section data-menu-title="1. La Falacia Fundacional" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="Profundicemos en la primera parte de nuestra argumentación: la falacia fundacional. La formación médica tradicional se estructura como una serie de rotaciones por especialidades, creando la ilusión de que el conocimiento se acumula aditivamente. Pero hagamos un cálculo simple. Si el médico de familia debiera dominar el veinte por ciento esencial de quince especialidades, estaríamos hablando de un trescientos por ciento del conocimiento total. Esta imposibilidad aritmética raramente se explicita, pero subyace a muchas expectativas institucionales. Como señala Stange, aplicar reglas de especialistas a la atención primaria es desastroso.">
+                <h2><i class="fas fa-exclamation-triangle"></i> 1. La Falacia Fundacional</h2>
+                <p>Existe un modelo mental implícito: el generalista sería quien domina el «núcleo esencial» de cada especialidad médica...</p>
+                <div class="highlight-box warning" style="margin-top: 0.6em;">
+                    <strong>Cita clave:</strong> «Residency training is understood as a series of rotations with the perception that you "add" new knowledge from each one.» — Can Fam Physician 2012
+                </div>
+                <p style="margin-top: 0.8em;">El problema: si aplicamos el principio de Pareto a 15 especialidades...</p>
+                <div style="text-align: center; margin-top: 0.5em;">
+                    <div class="stat-box" style="background: rgba(248,113,113,0.15); border-color: var(--accent-red);">
+                        <span class="number" style="color: var(--accent-red);">15 × 20%</span>
+                        <span class="label">= 300% del conocimiento total</span>
+                    </div>
+                </div>
+                <div class="footnote">Stange KC. Simple rules that guide generalist and specialist care. Fam Med 2021</div>
+            </section>
+
+            <!-- SLIDE 4: Multimorbilidad -->
+            <section data-menu-title="Multimorbilidad" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="El problema se agrava cuando confrontamos la realidad epidemiológica. La multimorbilidad no es una excepción que requiera manejo especial; es la condición normativa de la práctica generalista. Más del sesenta por ciento de los adultos mayores de sesenta y cinco años viven con múltiples condiciones crónicas. En mayores de ochenta, esta cifra supera el ochenta por ciento. Y aquí está la clave: la complejidad que generan las interacciones entre condiciones y tratamientos no es aditiva, es multiplicativa. El paciente multimórbido no es una colección de sistemas de órganos independientes.">
+                <h2><i class="fas fa-users"></i> La Multimorbilidad: La Norma, No la Excepción</h2>
+                <div style="text-align: center; margin: 0.8em 0;">
+                    <div class="stat-box">
+                        <span class="number">>60%</span>
+                        <span class="label">Adultos >65 años con múltiples crónicas</span>
+                    </div>
+                    <div class="stat-box" style="background: rgba(251,146,60,0.15); border-color: var(--accent-orange);">
+                        <span class="number" style="color: var(--accent-orange);">>80%</span>
+                        <span class="label">En mayores de 80 años</span>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <strong>Implicación:</strong> Las interacciones entre condiciones y tratamientos generan complejidad <strong>multiplicativa</strong>, no aditiva.
+                </div>
+                <div class="footnote">Barnett K et al. Lancet 2012</div>
+            </section>
+
+            <!-- SLIDE 5: Estudios Duke -->
+            <section data-menu-title="2. Imposibilidad Temporal" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="Pasemos ahora a la demostración aritmética más contundente. El grupo de investigación de Duke University ha cuantificado con rigor el tiempo necesario para atender un cupo estándar de dos mil quinientos pacientes. Observen la línea temporal en pantalla. En dos mil tres, solo los servicios preventivos requerían siete punto cuatro horas diarias. En dos mil nueve, añadiendo crónicos y agudos, la cifra subió a veintiuna punto siete horas. Y en dos mil veintidós, con las guías actualizadas, se necesitan veintiséis punto siete horas por día. El día solo tiene veinticuatro. Esta imposibilidad física es literal, no metafórica.">
+                <h2><i class="fas fa-clock"></i> 2. La Demostración Aritmética</h2>
+                <p>El grupo de <strong>Duke University</strong> (Yarnall, Østbye, Porter) ha producido evidencia contundente:</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2003</div>
+                        <div class="timeline-value">7.4h</div>
+                        <div class="timeline-label">Solo prevención USPSTF</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2009</div>
+                        <div class="timeline-value" style="color: var(--accent-orange);">21.7h</div>
+                        <div class="timeline-label">Atención completa</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-value" style="color: var(--accent-red);">26.7h</div>
+                        <div class="timeline-label">Guías actualizadas</div>
+                    </div>
+                </div>
+                <div class="highlight-box danger">
+                    <strong>Conclusión:</strong> Se necesitan 26.7 horas/día para un cupo de 2,500 pacientes. El día tiene 24.
+                </div>
+                <div class="footnote">Porter J et al. J Gen Intern Med 2022</div>
+            </section>
+
+            <!-- SLIDE 6: Desglose temporal -->
+            <section data-menu-title="Desglose 26.7h" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="Analicemos cómo se distribuyen esas veintiséis horas. La tabla muestra que más de la mitad del tiempo se destinaría a atención preventiva, seguida del manejo de enfermedades crónicas. La patología aguda, que tradicionalmente se considera el núcleo de la atención primaria, solo representa el ocho por ciento del tiempo necesario. Esta distribución revela una conclusión fundamental: el incumplimiento de guías no es un fallo individual de médicos mal formados. Es una condición estructural inherente al diseño del sistema. Ningún grado de formación adicional puede superar una imposibilidad aritmética.">
+                <h2><i class="fas fa-chart-pie"></i> Desglose de las 26.7 Horas/Día</h2>
+                <table>
+                    <thead>
+                        <tr><th>Actividad</th><th>Horas/día</th><th>%</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><i class="fas fa-shield-alt"></i> Atención preventiva</td><td><strong>14.1</strong></td><td>53%</td></tr>
+                        <tr><td><i class="fas fa-heartbeat"></i> Enfermedades crónicas</td><td><strong>7.2</strong></td><td>27%</td></tr>
+                        <tr><td><i class="fas fa-first-aid"></i> Patología aguda</td><td><strong>2.2</strong></td><td>8%</td></tr>
+                        <tr><td><i class="fas fa-file-medical"></i> Documentación</td><td><strong>3.2</strong></td><td>12%</td></tr>
+                    </tbody>
+                </table>
+                <div class="highlight-box warning" style="margin-top: 0.6em;">
+                    <strong>Nota:</strong> El incumplimiento de guías no es fallo individual. Es una <strong>condición estructural</strong> inherente al diseño del sistema.
+                </div>
+            </section>
+
+            <!-- SLIDE 7: Colisión de Guías -->
+            <section data-menu-title="3. Colisión de Guías" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="Pasemos al tercer eje de la argumentación: la colisión de guías clínicas. Cada guía se diseña asumiendo implícitamente que es la única en aplicación. Cuando múltiples guías se aplican a un paciente multimórbido, las cargas de tratamiento se suman sin control central. El modelo de complejidad acumulativa de Shippee y Montori formaliza esta dinámica: existe un equilibrio entre la carga de tratamiento que imponemos al paciente y su capacidad para soportarla. Cuando la carga excede la capacidad, incluso intervenciones válidas fracasan. La medicina mínimamente disruptiva propone invertir la lógica de más es mejor por una lógica de lo suficiente.">
+                <h2><i class="fas fa-random"></i> 3. La Colisión de Guías Clínicas</h2>
+                <p>Cada guía asume implícitamente que es la <strong>única en aplicación</strong>. El resultado:</p>
+                <div class="columns">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-title"><i class="fas fa-layer-group"></i> Complejidad Acumulativa</div>
+                            <p>Cada nueva intervención agrega carga que interacciona con las existentes (modelo Shippee-Montori)</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-title"><i class="fas fa-balance-scale"></i> Workload vs Capacity</div>
+                            <p>Cuando la carga excede la capacidad del paciente → atención mínimamente efectiva</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box info" style="margin-top: 0.6em;">
+                    <strong>Minimally Disruptive Medicine:</strong> El objetivo no es maximizar adherencia a guías, sino optimizar resultados minimizando la disrupción.
+                </div>
+                <div class="footnote">Shippee ND et al. J Clin Epidemiol 2012 | Leppin AL et al. Healthcare 2015</div>
+            </section>
+
+            <!-- SLIDE 8: Límites Cognitivos -->
+            <section data-menu-title="4. Límites Cognitivos" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="Ahora entramos en los fundamentos psicocognitivos. Nelson Cowan demostró que la memoria de trabajo humana puede mantener activos solo cuatro más menos uno ítems simultáneamente. Este límite de cuatro no es modificable mediante entrenamiento; está enraizado en la arquitectura neural del córtex prefrontal. Cuando un médico evalúa un paciente multimórbido, debe integrar consideraciones de nueve o más dominios. La demanda excede la capacidad biológica por un factor de dos a tres veces. A esto se suman dos mecanismos agravantes: el coste del cambio de tarea con cada interrupción, y la fatiga de decisión que se acumula tras unas seiscientas decisiones diarias.">
+                <h2><i class="fas fa-brain"></i> 4. Límites Cognitivos Irrebasables</h2>
+                <div style="text-align: center; margin: 0.6em 0;">
+                    <div class="stat-box">
+                        <span class="number">4±1</span>
+                        <span class="label">Ítems en memoria de trabajo (Cowan)</span>
+                    </div>
+                </div>
+                <p>Un paciente de 75 años con diabetes, HTA, FA, EPOC, artrosis y deterioro cognitivo requiere mantener <strong>9+ dominios</strong> simultáneamente activos.</p>
+                <div class="highlight-box danger">
+                    <strong>Resultado:</strong> La demanda cognitiva excede la capacidad biológica por un factor de <strong>2-3x</strong>.
+                </div>
+                <h3>Mecanismos agravantes:</h3>
+                <ul>
+                    <li><strong>Switching cost:</strong> Cada cambio de contexto impone un "peaje cognitivo"</li>
+                    <li><strong>Fatiga de decisión:</strong> ~600 decisiones/día agotan los recursos volitivos</li>
+                </ul>
+                <div class="footnote">Cowan N. Behav Brain Sci 2001 | Linder JA et al. JAMA Intern Med 2014</div>
+            </section>
+
+            <!-- SLIDE 9: Sensemaking -->
+            <section data-menu-title="5. Sensemaking Clínico" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="Si el modelo aditivo falla, ¿cómo opera realmente el generalista experto? La respuesta está en el concepto de sensemaking clínico. El psicólogo Gary Klein desarrolló la teoría Data-Frame para explicar cómo razonamos en entornos inciertos. El médico no sigue un proceso hipotético-deductivo lineal. Más bien, construye activamente significado mediante ciclos iterativos: enmarca la situación, actualiza con datos, detecta discrepancias, reconfigura, y converge o itera de nuevo. Esa corazonada de que algo no encaja no es pensamiento mágico. Refleja una sensibilidad fina a patrones sutiles aprendidos a lo largo de años de práctica.">
+                <h2><i class="fas fa-lightbulb"></i> 5. El Generalista como Sensemaker</h2>
+                <p>El modelo hipotético-deductivo tradicional no captura la realidad de la consulta generalista.</p>
+                <div class="card" style="margin-top: 0.6em;">
+                    <div class="card-title"><i class="fas fa-sync-alt"></i> Teoría Data-Frame (Gary Klein)</div>
+                    <p>1. Enmarcar situación → 2. Actualizar con datos → 3. Detectar discrepancias → 4. Reconfigurar → 5. Converger o iterar</p>
+                </div>
+                <div class="highlight-box">
+                    <strong>El generalista construye activamente significado bajo incertidumbre</strong>, más que recolectar datos esperando que emerja "la verdad" diagnóstica.
+                </div>
+                <p style="margin-top: 0.5em;">La intuición de que "algo no encaja" refleja una <strong>sensibilidad fina a patrones sutiles</strong> aprendidos con los años.</p>
+                <div class="footnote">Klein G. Data-Frame Theory | Berg SH et al. BMC Health Serv Res 2020</div>
+            </section>
+
+            <!-- SLIDE 10: Incertidumbre -->
+            <section data-menu-title="6. Gestión de Incertidumbre" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="La gestión de la incertidumbre diagnóstica constituye una competencia distintiva del generalista. En atención primaria, la baja prevalencia de enfermedades graves, los síntomas inespecíficos y la imposibilidad de investigar exhaustivamente cada queja hacen que la duda sea la norma. El enfoque correcto no es eliminar la incertidumbre, sino manejarla de forma segura. La herramienta clave es el safety netting formalizado: proporcionar información pronóstica, identificar señales de alarma específicas, establecer plazos de reevaluación, y definir qué hacer si empeora. Los estudios muestran que los pacientes toleran e incluso aprecian la honestidad sobre la incertidumbre cuando se acompaña de un plan claro.">
+                <h2><i class="fas fa-question-circle"></i> 6. Incertidumbre como Competencia Nuclear</h2>
+                <p>La incertidumbre en atención primaria es <strong>omnipresente y estructural</strong>. No se elimina; se gestiona.</p>
+                <h3>Safety Netting Formalizado:</h3>
+                <ul>
+                    <li><strong>Información pronóstica:</strong> Curso esperado de la condición probable</li>
+                    <li><strong>Red flags:</strong> Señales de alarma específicas</li>
+                    <li><strong>Plazo de reevaluación:</strong> Cuándo retomar contacto</li>
+                    <li><strong>Acceso contingente:</strong> Qué hacer si empeora antes del plazo</li>
+                </ul>
+                <div class="highlight-box info" style="margin-top: 0.5em;">
+                    Los pacientes toleran —e incluso aprecian— la honestidad sobre la incertidumbre cuando se acompaña de un <strong>plan claro</strong>.
+                </div>
+                <div class="footnote">Russell J et al. BMC Prim Care 2024</div>
+            </section>
+
+            <!-- SLIDE 11: Heurísticas -->
+            <section data-menu-title="7. Heurísticas Adaptativas" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="Otro pilar del nuevo paradigma es la rehabilitación de las heurísticas. El programa de investigación de Gigerenzer introdujo el concepto de racionalidad ecológica: una heurística no se juzga en abstracto por su desviación de la lógica formal, sino por qué tan bien se adapta al entorno donde se usa. En atención primaria, heurísticas como si suena como cascos, piensa en caballos y no en cebras no son sesgos a corregir. Son estrategias eficaces de priorización inicial adaptadas a la epidemiología del contexto. El buen clínico posee un repertorio de atajos inteligentes y, crucialmente, sabe cuándo apartarse de ellos.">
+                <h2><i class="fas fa-bolt"></i> 7. Rehabilitando las Heurísticas</h2>
+                <p>El programa de <strong>Gigerenzer</strong> desafía la visión de heurísticas como "atajos chapuceros":</p>
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-leaf"></i> Racionalidad Ecológica</div>
+                    <p>Una heurística no se juzga en abstracto, sino por <strong>qué tan bien se adapta al entorno</strong> donde se usa.</p>
+                </div>
+                <h3 style="margin-top: 0.6em;">Heurísticas Fast-and-Frugal en AP:</h3>
+                <ul>
+                    <li><strong>Exclusión de urgencia:</strong> Descartar patología grave inmediata primero</li>
+                    <li><strong>Respuesta a demanda expresada:</strong> Atender el motivo, no todos los problemas potenciales</li>
+                    <li><strong>Un síntoma nuevo a la vez:</strong> Reconsiderar desde cero ante información novedosa</li>
+                </ul>
+                <div class="footnote">Gigerenzer G et al. Simple Heuristics That Make Us Smart 1999</div>
+            </section>
+
+            <!-- SLIDE 12: IA -->
+            <section data-menu-title="8. IA Generativa" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="¿Podría la inteligencia artificial resolver la paradoja? La evidencia sugiere que no, al menos con la tecnología actual. El meta-análisis de Takita de dos mil veinticinco encontró que los modelos de lenguaje alcanzan un noventa por ciento de acierto en casos monopatológicos claros, pero caen a solo un cincuenta por ciento en casos complejos o multimórbidos. Más inquietante aún es la paradoja del rendimiento documentada por Goh: los médicos con asistencia de IA no mejoraron su precisión, e incluso tuvieron más falsas alarmas. El mecanismo es el sesgo de automatización: el médico reduce su esfuerzo analítico anticipando que la máquina ya ha hecho el trabajo.">
+                <h2><i class="fas fa-robot"></i> 8. IA Generativa: Promesas Incumplidas</h2>
+                <p>El meta-análisis de <strong>Takita et al. (2025)</strong> evaluó la exactitud diagnóstica de LLMs:</p>
+                <div class="columns">
+                    <div class="col">
+                        <div class="stat-box" style="background: rgba(74,222,128,0.12); border-color: var(--accent-green);">
+                            <span class="number" style="color: var(--accent-green);">~90%</span>
+                            <span class="label">Casos monopatológicos claros</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="stat-box" style="background: rgba(248,113,113,0.12); border-color: var(--accent-red);">
+                            <span class="number" style="color: var(--accent-red);">~50%</span>
+                            <span class="label">Casos complejos/multimórbidos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box danger" style="margin-top: 0.6em;">
+                    <strong>Paradoja del rendimiento (Goh 2024):</strong> Médicos con asistencia de IA <strong>no mejoraron</strong> su precisión y tuvieron más falsas alarmas.
+                </div>
+                <p><strong>Mecanismo:</strong> Sesgo de automatización → holgura cognitiva anticipatoria</p>
+                <div class="footnote">Takita H et al. npj Digit Med 2025 | Goh E et al. JAMA Netw Open 2024</div>
+            </section>
+
+            <!-- SLIDE 13: Moral Injury -->
+            <section data-menu-title="9. Moral Injury" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="La paradoja estructural tiene consecuencias humanas profundas. El concepto de moral injury, originado en contextos militares, describe el daño sufrido cuando las circunstancias obligan a actuar contra la propia ética. En medicina de familia, esto ocurre a diario. ¿Dedico más tiempo a este paciente frágil o me ciño al tiempo asignado? ¿Sigo todas las guías sabiendo que lo saturaré de tratamientos? Estas microtransgresiones erosionan el sentido de propósito. Lo importante es que el moral injury es mensurable y modificable. Intervenciones dirigidas como el coaching grupal han demostrado reducirlo significativamente. El médico quemado es, a menudo, un médico herido moralmente.">
+                <h2><i class="fas fa-heart-broken"></i> 9. Moral Injury: Más Allá del Burnout</h2>
+                <p>El <strong>moral injury</strong> es el daño sufrido cuando las circunstancias obligan a actuar contra la propia ética del cuidado.</p>
+                <div class="card" style="border-color: var(--accent-red);">
+                    <div class="card-title" style="color: var(--accent-red);"><i class="fas fa-exclamation-circle"></i> La Disonancia Diaria</div>
+                    <p>¿Dedicar más tiempo a este paciente frágil o ceñirse al tiempo? ¿Seguir todas las guías o evitar saturar al paciente?</p>
+                </div>
+                <div class="highlight-box warning" style="margin-top: 0.6em;">
+                    <strong>Hallazgo clave:</strong> El moral injury es <strong>mensurable y modificable</strong>. Un programa de coaching grupal redujo significativamente el daño moral (p<0.001).
+                </div>
+                <p style="margin-top: 0.5em;">El médico "quemado" es a menudo un médico <strong>herido moralmente</strong> que se distancia como supervivencia.</p>
+                <div class="footnote">Song YK et al. JAMA Netw Open 2021 | Mann A et al. JAMA Netw Open 2023</div>
+            </section>
+
+            <!-- SLIDE 14: Phronesis -->
+            <section data-menu-title="10. Phronesis" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="Llegamos a uno de los conceptos más profundos de esta revisión: la phronesis o sabiduría práctica. Aristóteles distinguía entre téchne, la habilidad técnica basada en reglas, y phronesis, el juicio contextual orientado al bien actuar. Mientras las especialidades procedimentales enfatizan la téchne, el cirujano que domina una técnica, la medicina de familia opera casi exclusivamente en el terreno de la phronesis. Para el generalista, la phronesis no es complemento de la téchne; es la sustancia misma de su práctica. Esto tiene implicaciones profundas para cómo debemos formar y evaluar a los médicos de familia.">
+                <h2><i class="fas fa-balance-scale-right"></i> 10. Phronesis: Sabiduría Práctica</h2>
+                <p>Aristóteles distinguía entre <strong>téchne</strong> (habilidad técnica) y <strong>phronesis</strong> (juicio contextual orientado al bien).</p>
+                <div class="columns">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-title"><i class="fas fa-cogs"></i> Téchne</div>
+                            <p>Reglas, protocolos, procedimientos estandarizados. Predomina en especialidades procedimentales.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="border-color: var(--accent-green);">
+                            <div class="card-title" style="color: var(--accent-green);"><i class="fas fa-compass"></i> Phronesis</div>
+                            <p>Juicio contextual, valores, percepción de lo singular. <strong>Sustancia de la práctica generalista.</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 0.6em;">
+                    Para el generalista, la phronesis no es complemento de la téchne; <strong>es la sustancia misma de su práctica</strong>.
+                </div>
+                <div class="footnote">Braude HD. Intuition in Medicine 2012 | Cosgrove L et al. J Am Board Fam Med 2023</div>
+            </section>
+
+            <!-- SLIDE 15: Nuevo Paradigma -->
+            <section data-menu-title="11. Nuevo Paradigma" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="De la convergencia de toda esta evidencia emerge un modelo alternativo con seis principios rectores. Primero: la atención generalista es orquestación y síntesis, no suma y cumplimiento. Segundo: la incertidumbre se gestiona, no se elimina. Tercero: el tiempo es herramienta terapéutica. Cuarto: la relación con el paciente es un insumo central, tan valioso como el conocimiento biomédico. Quinto: la adaptabilidad prevalece sobre la protocolización rígida. Y sexto: el cuidado del médico es un recurso sistémico, no un lujo individual. Estos principios redefinen qué significa ser un buen médico de familia.">
+                <h2><i class="fas fa-lightbulb"></i> 11. Hacia un Nuevo Paradigma</h2>
+                <div style="font-size: 0.85em;">
+                    <p><strong style="color: var(--accent-purple);">1.</strong> La atención generalista es <strong>orquestación y síntesis</strong>, no suma y cumplimiento</p>
+                    <p><strong style="color: var(--accent-purple);">2.</strong> La incertidumbre <strong>se gestiona</strong>, no se elimina</p>
+                    <p><strong style="color: var(--accent-purple);">3.</strong> El <strong>tiempo es herramienta terapéutica</strong>. La longitudinalidad permite que las cosas se aclaren</p>
+                    <p><strong style="color: var(--accent-purple);">4.</strong> La <strong>relación es insumo central</strong>. Conocer al paciente tiene valor equivalente a conocer su listado biomédico</p>
+                    <p><strong style="color: var(--accent-purple);">5.</strong> La <strong>adaptabilidad prevalece</strong> sobre la protocolización rígida</p>
+                    <p><strong style="color: var(--accent-purple);">6.</strong> El <strong>cuidado del médico</strong> es recurso sistémico, no lujo individual</p>
+                </div>
+            </section>
+
+            <!-- SLIDE 16: Expertise Adaptativa -->
+            <section data-menu-title="Expertise Adaptativa" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="¿Cómo se materializa este nuevo paradigma en la práctica? El experto generalista adaptativo prioriza y secuencia problemas en el tiempo, integra continuamente información nueva mediante sensemaking, emplea heurísticas de forma crítica, reflexiona deliberadamente cuando el caso lo amerita, gestiona la incertidumbre con honestidad y método, y actúa como mariscal de campo coordinando intervenciones y defendiendo los intereses globales del paciente. La excelencia no se mide por cuántas guías sigue, sino por qué tan bien equilibra la totalidad de la atención.">
+                <h2><i class="fas fa-user-graduate"></i> El Experto Generalista Adaptativo</h2>
+                <ul>
+                    <li><strong>Prioriza y secuencia</strong> problemas en el tiempo</li>
+                    <li><strong>Integra continuamente</strong> información nueva (sensemaking)</li>
+                    <li><strong>Emplea heurísticas</strong> de forma crítica, consciente de sus límites</li>
+                    <li><strong>Reflexiona deliberadamente</strong> cuando el caso lo amerita</li>
+                    <li><strong>Gestiona la incertidumbre</strong> con honestidad y método</li>
+                    <li>Actúa como <strong>mariscal de campo</strong>: coordina, filtra, defiende intereses globales</li>
+                    <li>Aprende de <strong>cada encuentro</strong>; su conocimiento es expansivo pero profundo</li>
+                </ul>
+                <div class="highlight-box info" style="margin-top: 0.5em;">
+                    La excelencia no se mide por cuántas guías sigue, sino por <strong>qué tan bien equilibra la totalidad</strong> de la atención.
+                </div>
+            </section>
+
+            <!-- SLIDE 17: Continuidad Relacional -->
+            <section data-menu-title="Continuidad Relacional" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="Un elemento frecuentemente invisibilizado es el valor de la continuidad relacional. Ver al mismo médico a lo largo del tiempo se asocia con reducción de la mortalidad por todas las causas, menos hospitalizaciones y mejor adherencia terapéutica. Desde la perspectiva cognitiva, la continuidad opera como un mecanismo de ahorro: el médico que conoce al paciente desde hace años no necesita reconstruir su contexto en cada consulta. Este conocimiento acumulado funciona como un chunk de orden superior que libera memoria de trabajo para lo nuevo. La fragmentación de la atención primaria destruye este capital cognitivo que hace posible la eficiencia genuina.">
+                <h2><i class="fas fa-link"></i> Continuidad Relacional: Capital Cognitivo</h2>
+                <p>Ver al <strong>mismo médico a lo largo del tiempo</strong> se asocia con:</p>
+                <div style="text-align: center; margin: 0.6em 0;">
+                    <div class="stat-box" style="background: rgba(74,222,128,0.12); border-color: var(--accent-green);">
+                        <span class="number" style="color: var(--accent-green);">↓</span>
+                        <span class="label">Mortalidad por todas las causas</span>
+                    </div>
+                    <div class="stat-box" style="background: rgba(74,222,128,0.12); border-color: var(--accent-green);">
+                        <span class="number" style="color: var(--accent-green);">↓</span>
+                        <span class="label">Hospitalizaciones</span>
+                    </div>
+                    <div class="stat-box" style="background: rgba(74,222,128,0.12); border-color: var(--accent-green);">
+                        <span class="number" style="color: var(--accent-green);">↑</span>
+                        <span class="label">Adherencia terapéutica</span>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <strong>Mecanismo:</strong> El conocimiento acumulado funciona como un <strong>chunk de orden superior</strong> que libera memoria de trabajo para lo nuevo.
+                </div>
+                <p style="font-size: 0.8em;">La fragmentación destruye el <strong>capital cognitivo</strong> que permite la eficiencia genuina.</p>
+                <div class="footnote">Pereira Gray DJ et al. BMJ Open 2018 | Sandvik H et al. Br J Gen Pract 2022</div>
+            </section>
+
+            <!-- SLIDE 18: Conclusiones -->
+            <section data-menu-title="12. Conclusiones" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="Llegamos a las conclusiones. La convergencia de evidencia temporal, cognitiva, clínica y tecnológica conduce a una conclusión categórica. El modelo del generalista como suma de especialistas parciales carece de fundamento, tanto biológico como temporal. Las características definitorias del médico de familia, y subrayo definitorias, no derivadas, son la gestión de complejidad, el sensemaking, las heurísticas adaptativas, el safety netting, la phronesis y la orquestación crítica de la inteligencia artificial. Solo reconociendo los límites podremos superarlos creativamente. La paradoja, una vez comprendida, puede resolverse cambiando las reglas del juego.">
+                <h2><i class="fas fa-flag-checkered"></i> 12. Conclusiones</h2>
+                <div class="highlight-box info">
+                    La convergencia de evidencia temporal, cognitiva, clínica y tecnológica conduce a una conclusión categórica:
+                </div>
+                <div class="card" style="margin-top: 0.6em; border-color: var(--accent-green);">
+                    <div class="card-title" style="color: var(--accent-green);"><i class="fas fa-star"></i> Mensaje Final</div>
+                    <p>El modelo mental del generalista como «suma de especialistas parciales» carece de fundamento. La <strong>gestión de complejidad</strong>, el <strong>sensemaking</strong>, las <strong>heurísticas adaptativas</strong>, el <strong>safety netting</strong>, la <strong>phronesis</strong> y la <strong>orquestación crítica de la IA</strong> constituyen las características <strong>definitorias</strong> —no derivadas— del médico de familia.</p>
+                </div>
+                <p style="margin-top: 0.8em; text-align: center; font-size: 0.9em;"><em>Solo reconociendo los límites podremos superarlos creativamente.<br>La paradoja, una vez comprendida, puede resolverse cambiando las reglas del juego.</em></p>
+            </section>
+
+            <!-- SLIDE 19: Referencias -->
+            <section data-menu-title="Referencias Clave" data-background-gradient="linear-gradient(135deg, #0a0a0f 0%, #1a1025 100%)" data-audio-text="Finalizamos con las referencias clave que sustentan esta revisión. En pantalla pueden ver una tabla con los siete ejes principales y sus estudios seminales. El documento completo incluye ochenta y seis referencias publicadas hasta diciembre de dos mil veinticinco. Gracias por su atención. Pueden volver a cualquier diapositiva usando el menú lateral con la tecla M, o consultar la tabla de contenidos para navegar directamente a las secciones de su interés.">
+                <h2><i class="fas fa-book"></i> Referencias Clave</h2>
+                <table style="font-size: 0.5em;">
+                    <thead>
+                        <tr><th>Tema</th><th>Referencia</th><th>Hallazgo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Tiempo</td><td>Porter J et al. J Gen Intern Med 2022</td><td>26.7h/día necesarias</td></tr>
+                        <tr><td>Cognición</td><td>Cowan N. Behav Brain Sci 2001</td><td>Límite 4±1 ítems</td></tr>
+                        <tr><td>Complejidad</td><td>Shippee ND et al. J Clin Epidemiol 2012</td><td>Modelo carga-capacidad</td></tr>
+                        <tr><td>IA</td><td>Takita H et al. npj Digit Med 2025</td><td>~50% en casos complejos</td></tr>
+                        <tr><td>Moral Injury</td><td>Song YK et al. JAMA Netw Open 2021</td><td>Triggers y consecuencias</td></tr>
+                        <tr><td>Phronesis</td><td>Cosgrove L et al. J Am Board Fam Med 2023</td><td>Base del razonamiento clínico</td></tr>
+                        <tr><td>Continuidad</td><td>Pereira Gray DJ et al. BMJ Open 2018</td><td>Reduce mortalidad</td></tr>
+                    </tbody>
+                </table>
+                <p style="font-size: 0.6em; margin-top: 0.5em; opacity: 0.5;">Documento completo: 86 referencias | Diciembre 2025</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="reveal.js/plugin/search/search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/menu/menu.js"></script>
+    <script src="https://ernestobarrera.github.io/reveal.js-plugins/audio-slideshow/plugin.js"></script>
+    <script src="https://ernestobarrera.github.io/reveal.js-plugins/audio-slideshow/RecordRTC.js"></script>
+    <script src="https://ernestobarrera.github.io/reveal.js-plugins/audio-slideshow/recorder.js"></script>
+
+    <script>
+        Reveal.initialize({
+            width: 1280, height: 720, margin: 0.08,
+            hash: true, history: true, center: true,
+            mouseWheel: true, slideNumber: 'c/t', showSlideNumber: 'all',
+            transition: 'slide', backgroundTransition: 'fade',
+            controls: true, controlsTutorial: true, help: true,
+            audio: {
+                prefix: 'audio/', suffix: '.ogg', defaultDuration: 5,
+                textToSpeechURL: "https://api.voicerss.org/?key=5d3a06e889ae45cb8f2e4295756bec7e&hl=es-es&v=Diego&c=ogg&r=1&f=48khz_16bit_stereo&src=",
+                advance: -1, autoplay: true, defaultText: true, playerOpacity: 0.2,
+            },
+            menu: {
+                side: 'left', width: 'normal', numbers: true,
+                titleSelector: 'h1, h2', useTextContentForMissingTitles: true,
+                hideMissingTitles: false, markers: true,
+                custom: [{
+                    title: 'Atajos de Teclado', icon: '<i class="fas fa-keyboard"></i>',
+                    content: `<dl style="padding: 1em; font-size: 0.9em;">
+                        <dt style="font-weight: 600; color: #a78bfa; margin-top: 0.8em;">Navegación</dt>
+                        <dd><kbd>→</kbd> / <kbd>←</kbd> Siguiente / Anterior</dd>
+                        <dd><kbd>Espacio</kbd> Avanzar</dd>
+                        <dt style="font-weight: 600; color: #a78bfa; margin-top: 0.8em;">Herramientas</dt>
+                        <dd><kbd>M</kbd> Abrir menú</dd>
+                        <dd><kbd>B</kbd> Pizarra</dd>
+                        <dd><kbd>C</kbd> Anotar</dd>
+                        <dd><kbd>A</kbd> Audio</dd>
+                        <dd><kbd>?</kbd> Ayuda</dd>
+                    </dl>`
+                }],
+                themes: false, transitions: false, openButton: true, keyboard: true,
+            },
+            chalkboard: {
+                storage: "chalkboard-paradoja", toggleChalkboardButton: { left: "80px" },
+                toggleNotesButton: { left: "130px" }, colorButtons: 5,
+            },
+            plugins: [RevealHighlight, RevealNotes, RevealZoom, RevealSearch, RevealMenu, RevealChalkboard, RevealAudioSlideshow]
+        });
+    </script>
+</body>
+</html>
