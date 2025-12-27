@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Nefrotoxicidad del Metamizol | Síntesis de Evidencia 2025</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css" id="theme">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0ea5e9;
+            --secondary: #14b8a6;
+            --accent: #f43f5e;
+            --bg-dark: #0f172a;
+            --surface: #1e293b;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-glass: rgba(255, 255, 255, 0.1);
+        }
+
+        body { background-color: var(--bg-dark); }
+        .reveal { font-family: 'Outfit', sans-serif; color: var(--text-main); }
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4 { font-family: 'Space Grotesk', sans-serif; text-transform: none; letter-spacing: -0.02em; }
+        .reveal h1 { font-weight: 700; background: linear-gradient(90deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .reveal h2 { color: var(--primary); font-size: 1.4em; margin-bottom: 0.6em; }
+        .reveal p { line-height: 1.7; font-size: 0.9em; margin-bottom: 0.8em; }
+        .reveal li { line-height: 1.6; margin-bottom: 0.4em; }
+        .reveal section { text-align: left; padding: 20px 40px 70px 40px !important; }
+
+        /* SLIDE NUMBER BADGE */
+        .slide-number-badge {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9em;
+            padding: 6px 14px;
+            border-radius: 20px;
+            z-index: 100;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* UTILITIES */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; align-items: start; }
+        .v-stack { display: flex; flex-direction: column; gap: 12px; }
+
+        /* COMPONENTS */
+        .glass-panel { background: rgba(30, 41, 59, 0.65); backdrop-filter: blur(10px); border: 1px solid var(--border-glass); border-radius: 14px; padding: 20px; }
+        .stat-big { font-size: 2.2em; font-weight: 800; line-height: 1.1; color: var(--secondary); display: block; }
+        .stat-label { font-size: 0.6em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; display: block; }
+        .key-point { border-left: 4px solid var(--primary); padding-left: 15px; margin: 15px 0; font-style: italic; color: var(--text-muted); }
+
+        /* VENN DIAGRAM */
+        .venn-container { position: relative; width: 320px; height: 260px; margin: 0 auto; }
+        .circle { position: absolute; width: 140px; height: 140px; border-radius: 50%; mix-blend-mode: screen; display: flex; justify-content: center; align-items: center; font-weight: 600; font-size: 0.7em; text-align: center; }
+        .c1 { background: rgba(14, 165, 233, 0.55); top: 0; left: 90px; }
+        .c2 { background: rgba(20, 184, 166, 0.55); top: 80px; left: 20px; }
+        .c3 { background: rgba(244, 63, 94, 0.55); top: 80px; left: 160px; }
+        .venn-center { position: absolute; top: 80px; left: 115px; width: 90px; text-align: center; color: #fff; font-weight: 800; font-size: 0.9em; z-index: 10; animation: pulse 2s infinite; }
+
+        /* FLOWCHART */
+        .flow-step { background: var(--surface); padding: 10px 16px; border-radius: 8px; border: 1px solid var(--primary); color: var(--primary); font-weight: 600; text-align: center; font-size: 0.75em; }
+        .flow-arrow { color: var(--text-muted); font-size: 1em; margin: 0 8px; }
+
+        /* BAR CHART */
+        .bar-chart { margin-top: 12px; }
+        .bar-row { display: flex; align-items: center; margin-bottom: 10px; }
+        .bar-label { width: 90px; font-size: 0.6em; text-align: right; padding-right: 10px; color: var(--text-muted); }
+        .bar-track { flex: 1; background: rgba(255,255,255,0.1); height: 24px; border-radius: 4px; overflow: hidden; }
+        .bar-fill { height: 100%; display: flex; align-items: center; padding-left: 8px; font-size: 0.6em; font-weight: 700; color: #000; }
+        .fill-real { width: 90%; background: var(--secondary); }
+        .fill-measured { width: 54%; background: var(--accent); }
+
+        /* CITE BAR */
+        .cite-bar { position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 25px; background: rgba(15, 23, 42, 0.95); font-size: 0.55em; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px; border-top: 1px solid var(--border-glass); }
+        .cite-bar a { color: var(--primary); text-decoration: none; }
+        .cite-badge { background: var(--surface); padding: 2px 6px; border-radius: 4px; color: var(--secondary); margin-right: 6px; }
+
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.06); } 100% { transform: scale(1); } }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- SLIDE 1: PORTADA -->
+            <section data-audio-text="Bienvenidos a esta síntesis de evidencia científica sobre la nefrotoxicidad del metamizol. A lo largo de diez diapositivas, analizaremos datos provenientes de noventa y tres estudios publicados hasta el año dos mil veinticinco. Nuestro objetivo es entender cuándo el metamizol representa un riesgo real para el riñón y cuándo puede utilizarse con seguridad razonable. Prepárense para cuestionar algunos dogmas clínicos muy arraigados en nuestra práctica diaria.">
+                <div class="slide-number-badge">1 / 10</div>
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 550px; text-align: center;">
+                    <div style="font-size: 3em; color: var(--primary); margin-bottom: 15px;"><i class="fa-solid fa-kidneys"></i></div>
+                    <h1 style="font-size: 2.5em; line-height: 1.1; margin: 0;">Metamizol y Riñón</h1>
+                    <p style="font-size: 1.2em; color: var(--text-muted); font-weight: 300; margin-top: 10px;">Evidencia Científica vs Dogma Clínico</p>
+                    <div class="glass-panel" style="margin-top: 30px; padding: 12px 30px;">
+                        <span style="color: var(--secondary); font-weight: 600;">Revisión Sistemática Embase 2025</span><br>
+                        <span style="font-size: 0.8em; color: var(--text-muted);">93 Registros · 1966-2025</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 2: CONTEXTO Y METODOLOGÍA -->
+            <section data-audio-text="El cuerpo de evidencia que analizamos proviene de una búsqueda sistemática en la base de datos Embase. En total, hemos identificado noventa y tres registros relevantes que abarcan desde reportes de casos publicados en los años sesenta hasta grandes estudios de cohortes con más de cuatrocientos ochenta mil pacientes. La heterogeneidad metodológica es considerable, pero esto nos permite triangular la información desde múltiples ángulos. Hemos organizado los hallazgos en cinco ejes principales: primero, la peligrosa interacción farmacológica conocida como Triple Whammy; segundo, el riesgo específico en pacientes con cirrosis hepática; tercero, la toxicidad dosis-dependiente observada en unidades de cuidados intensivos; cuarto, un fenómeno poco conocido pero crítico que es la interferencia con las pruebas de laboratorio; y quinto, los mecanismos de daño renal directo documentados en casos aislados.">
+                <div class="slide-number-badge">2 / 10</div>
+                <h2>Contexto: El Cuerpo de Evidencia</h2>
+                <p>Esta revisión sintetiza <strong>93 registros científicos</strong> publicados entre 1966 y 2025, identificados mediante búsqueda sistemática en Embase. El espectro metodológico abarca desde reportes de casos aislados hasta estudios observacionales con cohortes de <strong>más de 480.000 pacientes</strong>.</p>
+                
+                <div class="grid-2" style="margin-top: 20px;">
+                    <div class="glass-panel">
+                        <h4 style="color: var(--secondary); margin: 0 0 12px 0; font-size: 0.9em;">Cinco Ejes de Evidencia</h4>
+                        <ol style="font-size: 0.75em; line-height: 1.8; padding-left: 18px; margin: 0;">
+                            <li><strong>Triple Whammy</strong> – Interacción farmacológica de alto riesgo</li>
+                            <li><strong>Cirrosis Hepática</strong> – Vulnerabilidad hemodinámica</li>
+                            <li><strong>UCI (Dosis-Dependencia)</strong> – Umbral de seguridad</li>
+                            <li><strong>Interferencia Analítica</strong> – El "espejismo" del laboratorio</li>
+                            <li><strong>Daño Renal Directo</strong> – Mecanismos estructurales</li>
+                        </ol>
+                    </div>
+                    <div class="v-stack" style="text-align: center;">
+                        <div class="stat-big">93</div>
+                        <span class="stat-label">Registros Analizados</span>
+                        <div class="stat-big" style="margin-top: 15px;">480K+</div>
+                        <span class="stat-label">Pacientes en cohortes principales</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: TRIPLE WHAMMY - CONCEPTO -->
+            <section data-audio-text="El primer eje, y posiblemente el más relevante para la práctica clínica diaria, es la interacción farmacológica conocida como Triple Whammy. Este término, acuñado hace años en la literatura anglosajona, describe la combinación simultánea de tres clases de fármacos: un diurético, un inhibidor del sistema renina-angiotensina como un IECA o un ARA dos, y un antiinflamatorio que inhiba las prostaglandinas, como el metamizol o los AINEs clásicos. Cuando estas tres fuerzas farmacológicas actúan de forma concurrente, anulan los mecanismos de compensación hemodinámica del riñón. El glomérulo pierde su capacidad de autorregulación y se precipita un fracaso renal agudo prerrenal que puede progresar rápidamente. El estudio más robusto sobre este fenómeno fue publicado por Calvo y colaboradores en dos mil veintitrés, con una cohorte de casi medio millón de pacientes en España. Sus resultados demostraron un incremento del riesgo de hospitalización por lesión renal aguda del treinta y seis por ciento cuando se añadía metamizol a la combinación de diurético más inhibidor del eje.">
+                <div class="slide-number-badge">3 / 10</div>
+                <h2>Eje 1: La Tormenta Perfecta – "Triple Whammy"</h2>
+                <p>La <strong>Triple Whammy</strong> (Triple Golpe) describe la combinación simultánea de tres clases farmacológicas que, juntas, anulan los mecanismos de compensación hemodinámica del riñón:</p>
+                
+                <div class="grid-2" style="margin-top: 15px;">
+                    <div class="venn-container">
+                        <div class="circle c1">Diurético</div>
+                        <div class="circle c2">IECA/ARA II</div>
+                        <div class="circle c3">Metamizol</div>
+                        <div class="venn-center">LRA<br>+36%</div>
+                    </div>
+                    <div class="v-stack">
+                        <div class="glass-panel" style="text-align: center;">
+                            <span class="stat-big" style="color: var(--accent);">aOR 1.36</span>
+                            <span class="stat-label">Riesgo Hospitalización por LRA</span>
+                        </div>
+                        <p style="font-size: 0.75em; color: var(--text-muted);">La adición de metamizol a pacientes con diurético + ISRAA incrementa significativamente el riesgo de fracaso renal agudo prerrenal.</p>
+                    </div>
+                </div>
+                
+                <div class="key-point">El glomérulo pierde su capacidad de autorregulación cuando las tres fuerzas farmacológicas actúan simultáneamente.</div>
+                
+                <div class="cite-bar">
+                    <span><span class="cite-badge">PDS 2023</span> Calvo DM, Rodríguez-Martín S, et al. <i>Pharmacoepidemiol Drug Saf.</i> 2023;32(7):789-798. n=480,537.</span>
+                    <a href="https://doi.org/10.1002/pds.5621" target="_blank">doi:10.1002/pds.5621</a>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: MITO VS REALIDAD -->
+            <section data-audio-text="La diapositiva anterior nos plantea una pregunta obvia: si el metamizol participa en esta Triple Whammy, ¿no sería más seguro usar un AINE clásico en su lugar? Durante décadas, muchos clínicos hemos asumido lo contrario: que el metamizol era la opción "segura para el riñón" frente a los AINEs. Sin embargo, un estudio muy reciente de los mismos autores, Calvo y colaboradores, publicado en dos mil veinticinco en la revista Toxics, desafía frontalmente este dogma. Compararon directamente el metamizol con los AINEs clásicos dentro de una subcohorte de más de sesenta y cinco mil pacientes que ya tenían la combinación peligrosa de diurético más inhibidor del eje. Los resultados fueron inesperados: los pacientes que recibieron AINEs clásicos en lugar de metamizol presentaron un menor riesgo de lesión renal aguda, con un odds ratio ajustado de cero coma ochenta y uno, y lo que es aún más llamativo, una mortalidad significativamente menor, con un odds ratio de cero coma sesenta y cuatro. Esto no significa que los AINEs sean fármacos seguros en este contexto, pero sí sugiere que el metamizol podría no ser la alternativa protectora que pensábamos.">
+                <div class="slide-number-badge">4 / 10</div>
+                <h2>Eje 1.2: Cuestionando el Dogma (2025)</h2>
+                <p>Durante décadas, el metamizol ha sido considerado la alternativa "segura para el riñón" frente a los AINEs clásicos. Sin embargo, evidencia muy reciente desafía esta suposición:</p>
+                
+                <div class="grid-2" style="margin-top: 15px;">
+                    <div class="glass-panel" style="border-left: 4px solid var(--accent);">
+                        <h4 style="color: var(--accent); font-size: 0.95em; margin: 0 0 10px 0;">Metamizol</h4>
+                        <p style="font-size: 0.75em; margin: 0;">Tradicionalmente percibido como opción "segura renal".</p>
+                        <hr style="opacity: 0.2; margin: 12px 0;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.3em; font-weight: 700;">Referencia</div>
+                            <span style="font-size: 0.6em; text-transform: uppercase; color: var(--text-muted);">Riesgo Base de Comparación</span>
+                        </div>
+                    </div>
+                    <div class="glass-panel" style="border-left: 4px solid var(--secondary);">
+                        <h4 style="color: var(--secondary); font-size: 0.95em; margin: 0 0 10px 0;">AINEs Clásicos</h4>
+                        <p style="font-size: 0.75em; margin: 0;">Sorprendentemente, mejores resultados en comparación directa.</p>
+                        <hr style="opacity: 0.2; margin: 12px 0;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.3em; font-weight: 700; color: var(--secondary);">aOR 0.64</div>
+                            <span style="font-size: 0.6em; text-transform: uppercase; color: var(--text-muted);">Menor Mortalidad (IC95% 0.49-0.82)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="key-point" style="border-color: var(--accent);">El metamizol podría no ser la alternativa protectora que asumíamos en el contexto de Triple Whammy. La evidencia cuestiona el dogma.</div>
+                
+                <div class="cite-bar">
+                    <span><span class="cite-badge">TOXICS 2025</span> Calvo DM, et al. <i>Toxics.</i> 2025;13(5):417. n=65,077.</span>
+                    <a href="https://doi.org/10.3390/toxics13050417" target="_blank">doi:10.3390/toxics13050417</a>
+                </div>
+            </section>
+
+            <!-- SLIDE 5: CIRROSIS - MECANISMO -->
+            <section data-audio-text="El segundo eje de riesgo es la cirrosis hepática, especialmente en su forma descompensada con ascitis. En el paciente cirrótico, la hemodinámica sistémica está profundamente alterada. Existe una vasodilatación esplácnica marcada que reduce el volumen arterial efectivo. Para compensar, el organismo activa intensamente el sistema renina-angiotensina y el sistema nervioso simpático. Sin embargo, el riñón del paciente cirrótico depende de forma crítica de las prostaglandinas renales, particularmente la prostaglandina E dos, para mantener la vasodilatación de la arteriola aferente y preservar el flujo sanguíneo glomerular. Cuando administramos metamizol, inhibimos la síntesis de estas prostaglandinas protectoras. El resultado es una vasoconstricción aferente brusca que provoca isquemia renal y precipita un fracaso renal agudo de tipo prerrenal que puede evolucionar hacia un síndrome hepatorrenal. El estudio de Tergast, publicado en dos mil veintiuno en Journal of Hepatology, cuantificó este riesgo: los pacientes con cirrosis avanzada que recibieron metamizol presentaron un hazard ratio de uno coma noventa y cinco para el desarrollo de lesión renal aguda, y lo que es más grave, un hazard ratio de dos coma quince para el desenlace combinado de muerte o necesidad de trasplante hepático.">
+                <div class="slide-number-badge">5 / 10</div>
+                <h2>Eje 2: Cirrosis – Mecanismo Fisiopatológico</h2>
+                <p>En la cirrosis descompensada, la vasodilatación esplácnica reduce el volumen arterial efectivo. El riñón depende críticamente de las <strong>prostaglandinas renales (PGE2)</strong> para mantener el flujo glomerular. El metamizol bloquea esta defensa:</p>
+                
+                <div style="display: flex; justify-content: center; align-items: center; gap: 12px; margin: 20px 0; flex-wrap: wrap;">
+                    <div class="flow-step" style="border-color: #fff; color: #fff;">Cirrosis</div>
+                    <i class="fas fa-arrow-right flow-arrow"></i>
+                    <div class="flow-step">Dependencia<br>PGE2</div>
+                    <div style="text-align: center;">
+                        <i class="fas fa-times" style="color: var(--accent); font-size: 1.2em;"></i>
+                        <i class="fas fa-arrow-right flow-arrow"></i>
+                        <div style="font-size: 0.55em; color: var(--accent);">METAMIZOL</div>
+                    </div>
+                    <div class="flow-step" style="border-color: var(--accent); color: var(--accent);">Isquemia<br>Glomerular</div>
+                    <i class="fas fa-arrow-right flow-arrow"></i>
+                    <div class="flow-step" style="border-color: var(--accent); color: var(--accent);">LRA / SHR</div>
+                </div>
+                
+                <div class="grid-2" style="margin-top: 15px;">
+                    <div class="glass-panel" style="text-align: center;">
+                        <span class="stat-big">1.95x</span>
+                        <span class="stat-label">Hazard Ratio de LRA</span>
+                    </div>
+                    <div class="glass-panel" style="text-align: center;">
+                        <span class="stat-big" style="color: var(--accent);">2.15x</span>
+                        <span class="stat-label">HR Muerte / Trasplante</span>
+                    </div>
+                </div>
+                
+                <div class="key-point">En cirrosis descompensada, el paracetamol (dosis ajustadas) emerge como alternativa hemodinámica superior.</div>
+                
+                <div class="cite-bar">
+                    <span><span class="cite-badge">J HEPATOL 2021</span> Tergast TL, Kimmann M, et al. <i>Journal of Hepatology.</i> 2021.</span>
+                    <a href="https://doi.org/10.1016/j.jhep.2021" target="_blank">doi:10.1016/j.jhep.2021</a>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: UCI Y DOSIS -->
+            <section data-audio-text="El tercer eje de evidencia proviene de las unidades de cuidados intensivos, donde el metamizol intravenoso es un analgésico y antipirético de uso muy frecuente. En este contexto, varios estudios han demostrado una clara relación dosis-respuesta. El trabajo más citado es el de Stueber y colaboradores, publicado en dos mil diecisiete en European Journal of Anaesthesiology. Analizaron pacientes críticos que recibieron metamizol intravenoso y encontraron que, por cada gramo adicional administrado al día, el riesgo de desarrollar lesión renal aguda aumentaba un sesenta por ciento. Este incremento fue independiente de otros factores de riesgo clásicos como la hipotensión, la sepsis o el uso de otros nefrotóxicos. Los autores identificaron un umbral de seguridad aproximado de dos coma cinco gramos diarios. Por debajo de esta dosis, el riesgo parece aceptable; por encima, aumenta de forma significativa. Esto tiene implicaciones prácticas directas: en el paciente crítico, debemos ser especialmente cuidadosos con las dosis acumuladas de metamizol y considerar alternativas cuando se supere este umbral.">
+                <div class="slide-number-badge">6 / 10</div>
+                <h2>Eje 3: UCI – La Dosis Define el Riesgo</h2>
+                <p>En el paciente crítico, el metamizol intravenoso es analgésico y antipirético de uso frecuente. Sin embargo, existe una <strong>relación dosis-respuesta clara</strong> documentada en el estudio de Stueber (2017):</p>
+                
+                <div class="grid-2" style="margin-top: 15px;">
+                    <div class="v-stack" style="text-align: center; align-items: center;">
+                        <div style="font-size: 3.5em; color: var(--primary);"><i class="fas fa-syringe"></i></div>
+                        <div class="stat-big">2.5g</div>
+                        <span class="stat-label">Umbral de Seguridad Diario</span>
+                        <p style="font-size: 0.7em; color: var(--text-muted); margin-top: 10px;">Dosis IV máxima recomendada en pacientes de riesgo.</p>
+                    </div>
+                    <div class="glass-panel">
+                        <h4 style="color: #fff; font-size: 0.9em; margin: 0 0 12px 0;">Relación Dosis-Respuesta</h4>
+                        <p style="font-size: 0.75em; color: var(--text-muted); margin: 0 0 12px 0;">Análisis multivariante ajustado por confusores:</p>
+                        <div style="margin-top: 10px; font-size: 1.1em;">
+                            <span style="color: var(--accent); font-weight: 700;">+1.6x Riesgo de LRA</span><br>
+                            <small style="color: var(--text-muted);">por cada gramo IV adicional/día</small>
+                        </div>
+                        <hr style="opacity: 0.2; margin: 15px 0;">
+                        <p style="font-size: 0.7em; color: var(--text-muted); margin: 0;">Este incremento es <strong>independiente</strong> de hipotensión, sepsis u otros nefrotóxicos concurrentes.</p>
+                    </div>
+                </div>
+                
+                <div class="cite-bar">
+                    <span><span class="cite-badge">EJA 2017</span> Stueber T, Buber L, et al. <i>Eur J Anaesthesiol.</i> 2017;34(8):523-530.</span>
+                    <a href="https://doi.org/10.1097/EJA.0000000000000627" target="_blank">doi:10.1097/EJA.0000000000000627</a>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: INTERFERENCIA ANALÍTICA -->
+            <section data-audio-text="El cuarto eje aborda un problema oculto pero extremadamente relevante: la interferencia del metamizol con las determinaciones analíticas de creatinina sérica. Este fenómeno fue caracterizado en detalle por Bojko y colaboradores en un estudio publicado en dos mil veintiuno en Annals of Clinical Biochemistry. Los autores demostraron que el metamizol y sus metabolitos causan un sesgo negativo masivo en los ensayos de creatinina basados en química seca enzimática, específicamente aquellos que utilizan la reacción de la sarcosina oxidasa. El sesgo puede alcanzar valores de hasta menos cuarenta por ciento. Esto significa que un paciente con una creatinina real de dos miligramos por decilitro puede aparecer en el laboratorio con un valor de uno coma dos, simulando una función renal completamente normal. Las consecuencias clínicas son graves: primero, generamos falsos negativos de insuficiencia renal, perdiendo la oportunidad de diagnosticar y tratar precozmente; segundo, y más peligroso, dosificamos fármacos de eliminación renal como vancomicina, meropenem o aminoglucósidos basándonos en un filtrado glomerular estimado falsamente elevado, lo que puede conducir a toxicidad grave. El método colorimétrico de Jaffé no presenta esta interferencia significativa, por lo que es la alternativa recomendada cuando hay sospecha.">
+                <div class="slide-number-badge">7 / 10</div>
+                <h2>Eje 4: El Espejismo del Laboratorio</h2>
+                <p>El metamizol y sus metabolitos causan un <strong>sesgo negativo masivo</strong> en los ensayos de creatinina basados en química seca enzimática (Sarcosina oxidasa). Este "espejismo" analítico tiene consecuencias clínicas graves:</p>
+                
+                <div class="bar-chart" style="max-width: 650px; margin: 15px auto;">
+                    <div class="bar-row">
+                        <div class="bar-label">sCr Real</div>
+                        <div class="bar-track"><div class="bar-fill fill-real">100% (2.0 mg/dL)</div></div>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar-label">Con Metamizol</div>
+                        <div class="bar-track"><div class="bar-fill fill-measured">~60% (1.2 mg/dL)</div></div>
+                    </div>
+                    <div style="text-align: right; color: var(--accent); font-weight: 700; font-size: 0.75em;"><i class="fas fa-exclamation-triangle"></i> Error de hasta -40.3%</div>
+                </div>
+                
+                <div class="grid-2" style="margin-top: 15px;">
+                    <div class="glass-panel" style="border-left: 4px solid var(--accent);">
+                        <h4 style="color: var(--accent); margin: 0 0 8px 0; font-size: 0.85em;">Consecuencias Clínicas</h4>
+                        <ul style="font-size: 0.7em; color: var(--text-muted); margin: 0; padding-left: 16px;">
+                            <li>Falsos negativos de insuficiencia renal</li>
+                            <li><strong>Sobredosificación</strong> de antibióticos nefrotóxicos (Vancomicina, Meropenem, Aminoglucósidos)</li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel" style="border-left: 4px solid var(--secondary);">
+                        <h4 style="color: var(--secondary); margin: 0 0 8px 0; font-size: 0.85em;">Solución</h4>
+                        <p style="font-size: 0.7em; color: var(--text-muted); margin: 0;">Método <strong>Jaffé</strong> (colorimétrico) no presenta interferencia significativa. Solicitar específicamente si hay sospecha.</p>
+                    </div>
+                </div>
+                
+                <div class="cite-bar">
+                    <span><span class="cite-badge">ACB 2021</span> Bojko L, Rainer M, et al. <i>Ann Clin Biochem.</i> 2021;58(5):456-463.</span>
+                    <a href="https://doi.org/10.1177/00045632211020029" target="_blank">doi:10.1177/00045632211020029</a>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: DAÑO DIRECTO -->
+            <section data-audio-text="El quinto y último eje aborda los mecanismos de daño renal estructural directo documentados en la literatura, aunque son mucho menos frecuentes que los efectos hemodinámicos que hemos comentado. Los reportes de casos y series pequeñas han descrito fundamentalmente tres tipos de lesión. Primero, la nefritis intersticial aguda, que es la manifestación más frecuente y probablemente tiene un componente de hipersensibilidad o inmunológico. Segundo, la necrosis tubular aguda, documentada sobre todo en contextos de sobredosis o deshidratación concomitante. Tercero, el llamado síndrome de Fanconi, que es una disfunción tubular proximal que causa pérdida urinaria de glucosa, fosfato y aminoácidos. En el ámbito pediátrico, las series de casos de intoxicación por sobredosis muestran una incidencia de insuficiencia renal transitoria de alrededor del doce por ciento. La buena noticia es que, en la mayoría de los casos, el pronóstico es favorable si se identifica precozmente el origen, se retira el fármaco y se asegura una hidratación adecuada. La recuperación suele ser completa en días o semanas.">
+                <div class="slide-number-badge">8 / 10</div>
+                <h2>Eje 5: Mecanismos de Daño Renal Directo</h2>
+                <p>Aunque menos frecuentes que los efectos hemodinámicos, existen reportes bien documentados de <strong>daño estructural directo</strong> atribuible al metamizol:</p>
+                
+                <div class="grid-2" style="margin-top: 15px;">
+                    <div class="glass-panel">
+                        <h4 style="color: var(--accent); margin: 0 0 10px 0; font-size: 0.85em;">Tipos de Lesión Documentados</h4>
+                        <ul style="font-size: 0.7em; color: var(--text-muted); margin: 0; padding-left: 16px; line-height: 1.8;">
+                            <li><strong>Nefritis Intersticial Aguda (NIA)</strong> – Probable componente inmunológico</li>
+                            <li><strong>Necrosis Tubular Aguda (NTA)</strong> – Contextos de sobredosis/deshidratación</li>
+                            <li><strong>Síndrome de Fanconi</strong> – Disfunción tubular proximal</li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel">
+                        <h4 style="color: var(--secondary); margin: 0 0 10px 0; font-size: 0.85em;">Pronóstico</h4>
+                        <p style="font-size: 0.7em; color: var(--text-muted); margin: 0 0 10px 0;">Generalmente <strong>favorable</strong> si:</p>
+                        <ul style="font-size: 0.7em; color: var(--text-muted); margin: 0; padding-left: 16px;">
+                            <li>Identificación precoz del origen</li>
+                            <li>Retirada inmediata del fármaco</li>
+                            <li>Hidratación adecuada</li>
+                        </ul>
+                        <p style="font-size: 0.7em; color: var(--text-muted); margin: 10px 0 0 0;">Recuperación completa habitual en días-semanas.</p>
+                    </div>
+                </div>
+                
+                <div class="glass-panel" style="margin-top: 15px; border-left: 4px solid var(--accent);">
+                    <h4 style="margin: 0 0 8px 0; font-size: 0.8em; color: #fff;">Datos Pediátricos (Sobredosis)</h4>
+                    <p style="font-size: 0.7em; color: var(--text-muted); margin: 0;"><strong>12%</strong> de incidencia de insuficiencia renal transitoria no oligúrica en series de intoxicación pediátrica.</p>
+                </div>
+                
+                <div class="cite-bar">
+                    <span><span class="cite-badge">NEFROLOGIA 2016</span> Martín-Navarro J, et al. <i>Nefrologia.</i> 2016.</span>
+                    <a href="https://doi.org/10.1016/j.nefro.2015.06.022" target="_blank">doi:10.1016/j.nefro.2015.06.022</a>
+                </div>
+            </section>
+
+            <!-- SLIDE 9: SÍNTESIS PRÁCTICA -->
+            <section data-audio-text="Llegamos a la síntesis práctica. Quiero que se lleven cuatro mensajes clave a su práctica clínica diaria. Primero, estratifiquen el riesgo: el metamizol debe evitarse o usarse con extrema precaución en pacientes con cirrosis descompensada, en aquellos que ya reciben la combinación de diurético más inhibidor del sistema renina-angiotensina, y en situaciones de hipovolemia o hipoperfusión activa. Segundo, en la UCI, respeten el umbral de dosis: intenten no superar los dos coma cinco gramos diarios por vía intravenosa y consideren alternativas cuando se acerquen a este límite. Tercero, desconfíen del laboratorio: si el paciente toma metamizol y la creatinina parece normal pero hay sospecha clínica de insuficiencia renal, asuman que el filtrado glomerular estimado puede estar falsamente elevado, o soliciten específicamente un método Jaffé. Cuarto, consideren el paracetamol como alternativa en hepatopatía avanzada, ya que mantiene un perfil de seguridad hemodinámica superior al no inhibir las prostaglandinas renales. En definitiva, la seguridad renal del metamizol no es absoluta ni universal, sino profundamente contextual.">
+                <div class="slide-number-badge">9 / 10</div>
+                <h2>Síntesis Práctica: Cuatro Mensajes Clave</h2>
+                
+                <div class="grid-2" style="gap: 12px;">
+                    <div class="glass-panel" style="border-left: 4px solid var(--accent);">
+                        <h4 style="margin: 0 0 8px 0; font-size: 0.8em; color: var(--accent);">1. Alto Riesgo (Evitar/Precaución)</h4>
+                        <ul style="font-size: 0.65em; margin: 0; padding-left: 14px; color: var(--text-muted); line-height: 1.6;">
+                            <li>Cirrosis descompensada (ascitis)</li>
+                            <li>Triple Whammy (+Diurético +ISRAA)</li>
+                            <li>Hipovolemia / Hipoperfusión activa</li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel" style="border-left: 4px solid var(--primary);">
+                        <h4 style="margin: 0 0 8px 0; font-size: 0.8em; color: var(--primary);">2. Umbral UCI</h4>
+                        <p style="font-size: 0.65em; margin: 0; color: var(--text-muted);">Dosis IV <strong>≤ 2.5g/día</strong>. Por encima, el riesgo aumenta +60% por cada gramo adicional.</p>
+                    </div>
+                    <div class="glass-panel" style="border-left: 4px solid var(--secondary);">
+                        <h4 style="margin: 0 0 8px 0; font-size: 0.8em; color: var(--secondary);">3. Precaución Analítica</h4>
+                        <p style="font-size: 0.65em; margin: 0; color: var(--text-muted);">Si sCr normal + Metamizol → <strong>asumir TFGe sobreestimado</strong> o solicitar método Jaffé.</p>
+                    </div>
+                    <div class="glass-panel" style="border-left: 4px solid #a78bfa;">
+                        <h4 style="margin: 0 0 8px 0; font-size: 0.8em; color: #a78bfa;">4. Alternativa Hepatopatía</h4>
+                        <p style="font-size: 0.65em; margin: 0; color: var(--text-muted);"><strong>Paracetamol</strong> (2-3g/día ajustado) mantiene perfil hemodinámica superior en cirrosis.</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px; text-align: center; font-size: 1.05em; font-weight: 600; color: var(--secondary); border: 2px solid var(--secondary); padding: 12px; border-radius: 10px;">
+                    Seguridad = Contexto + Dosis + Medición Correcta
+                </div>
+            </section>
+
+            <!-- SLIDE 10: CIERRE -->
+            <section data-audio-text="Muchas gracias por su atención. Esta presentación ha sido elaborada a partir de una revisión sistemática de noventa y tres registros en Embase, abarcando casi seis décadas de literatura científica hasta el año dos mil veinticinco. Espero que les sea útil para tomar decisiones más informadas y matizadas en su práctica clínica diaria. El mensaje final es claro: el metamizol no es un fármaco intrínsecamente peligroso, pero tampoco es universalmente seguro. La clave está, como siempre en medicina, en el contexto individual de cada paciente. Gracias.">
+                <div class="slide-number-badge">10 / 10</div>
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 480px; text-align: center;">
+                    <div style="font-size: 2.8em; color: var(--secondary); margin-bottom: 18px;"><i class="fas fa-check-circle"></i></div>
+                    <h1 style="font-size: 2.2em; margin: 0;">Gracias</h1>
+                    <p style="font-size: 1em; color: var(--text-muted); margin-top: 10px;">Revisión Sistemática Embase 2025 · 93 Registros · 1966-2025</p>
+                    <div class="glass-panel" style="margin-top: 25px; padding: 18px 30px; max-width: 600px;">
+                        <p style="font-size: 0.85em; margin: 0; color: var(--text-muted); font-style: italic;">"El metamizol no es intrínsecamente peligroso,<br>pero tampoco es universalmente seguro."</p>
+                        <p style="font-size: 1.05em; margin: 15px 0 0; color: var(--secondary); font-weight: 600;">La clave está en el contexto del paciente.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/notes/notes.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/rajgoel/reveal.js-plugins@master/audio-slideshow/plugin.js"></script>
+
+    <script>
+        Reveal.initialize({
+            width: 1100, height: 700, margin: 0.04,
+            hash: true, center: false, 
+            transition: 'slide',
+            backgroundTransition: 'fade',
+            slideNumber: false, // Using custom badge instead
+            
+            audio: {
+                prefix: 'audio/', suffix: '.ogg', defaultDuration: 5,
+                textToSpeechURL: "https://api.voicerss.org/?key=5d3a06e889ae45cb8f2e4295756bec7e&hl=es-es&v=Diego&c=ogg&r=0&f=48khz_16bit_stereo&src=",
+                advance: -1, autoplay: true, playerOpacity: 0.25,
+            },
+
+            plugins: [ RevealHighlight, RevealNotes, RevealAudioSlideshow ]
+        });
+    </script>
+</body>
+</html>
